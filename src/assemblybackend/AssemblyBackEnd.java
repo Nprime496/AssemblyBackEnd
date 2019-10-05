@@ -5,10 +5,11 @@
  */
 package assemblybackend;
 
-import assembly.Memory;
-import assembly.MyDesktop;
+import assembly.memory.Memory;
+import assembly.memory.MyDesktop;
 import assembly.TwoAdressAssembly;
 import assembly.ZeroAdressAssembly;
+import assembly.memory.Stack;
 
 
 /**
@@ -16,26 +17,31 @@ import assembly.ZeroAdressAssembly;
  * @author _Nprime496_
  */
 public class AssemblyBackEnd {
-
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         Memory ComputerMemory=MyDesktop.getMemory();
-        ZeroAdressAssembly ZeroAdresse=new ZeroAdressAssembly(ComputerMemory);
-        TwoAdressAssembly DeuxAdresse=new TwoAdressAssembly(ComputerMemory);
+        Stack ComputerStack=MyDesktop.getStack();
         ComputerMemory.store("A",16);
+        //ComputerMemory.store("AB",156);
         ComputerMemory.store("B",-10);
-        ZeroAdresse.push("A");
-        ZeroAdresse.push("B");
-        ZeroAdresse.push("A");
-        ZeroAdresse.push("B");
-        ZeroAdresse.add();
-        ZeroAdresse.mpy();
-        ZeroAdresse.pop("A");
-        DeuxAdresse.add("A","B");
-        ZeroAdresse.print("A");
-        //ZeroAdresse.print("B");
+        ComputerStack.push("A");
+        ComputerStack.push("B");
+        //ComputerStack.push("A");
+        //ComputerStack.push("B");
+        ZeroAdressAssembly.add();
+        //ZeroAdressAssembly.mpy();
+        try
+        {
+            ComputerStack.pop("A");
+        }
+        catch(Exception e)
+        {
+            System.out.println("la pile est vide");
+        }
+        MyDesktop.print("A");
     }
 }

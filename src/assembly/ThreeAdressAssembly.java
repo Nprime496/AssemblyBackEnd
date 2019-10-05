@@ -5,29 +5,29 @@
  */
 package assembly;
 
+import assembly.memory.MyDesktop;
+
 /**
  *
  * @author _Nprime496_
  */
 public class ThreeAdressAssembly extends Assembly{
-    public ThreeAdressAssembly(Memory memory)
+
+  
+    public static void add(String op1,String op2,String op3)
     {
-        super(memory);
+        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)+MyDesktop.getMemory().retrieve(op2));
     }
-    public void add(String op1,String op2,String op3)
+    public static void sub(String op1,String op2,String op3)
     {
-        this.memory.store(op3,this.memory.retrieve(op1)+this.memory.retrieve(op2));
+        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)-MyDesktop.getMemory().retrieve(op2));
     }
-    public void sub(String op1,String op2,String op3)
+    public static void mpy(String op1,String op2,String op3)
     {
-        this.memory.store(op3,this.memory.retrieve(op1)-this.memory.retrieve(op2));
+        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)*MyDesktop.getMemory().retrieve(op2));
     }
-    public void mpy(String op1,String op2,String op3)
+    public static void div(String op1,String op2,String op3)
     {
-        this.memory.store(op3,this.memory.retrieve(op1)*this.memory.retrieve(op2));
-    }
-    public void div(String op1,String op2,String op3)
-    {
-        this.memory.store(op3,this.memory.retrieve(op1)/this.memory.retrieve(op2));
+        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)/MyDesktop.getMemory().retrieve(op2));
     }
 }

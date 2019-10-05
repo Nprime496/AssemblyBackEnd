@@ -9,6 +9,7 @@ package assembly.FileUser;
  *
  * @author _Nprime496_
  */
-public class FileUser {
+public class FileUser 
+{
     
 }

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assembly;
+package assembly.memory;
 
+import assembly.memory.IMemory;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,17 +35,17 @@ public class Memory implements IMemory{
     public Memory()
     {
         this.memory=new HashMap<String,Integer>();
+        //System.out.println("MEMOIRE CRÉEE!!");
     }
     @Override
     public void store(String adress,int value)
     {
-        memory.put(adress,value);
+        this.memory.put(adress,value);
     }
     @Override
     public int retrieve(String adress)
     {
-        int value=(int)memory.get(adress);
-        return value;
+        return (int)this.memory.get(adress);
     }
 
 }

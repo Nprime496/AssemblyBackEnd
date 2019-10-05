@@ -5,44 +5,39 @@
  */
 package assembly;
 
+import assembly.memory.MyDesktop;
+
 /**
  *
  * @author _Nprime496_
  */
 public class OneAdressAssembly extends Assembly {
-    //this.memory.setFlag(accumulator);
+    //MyDesktop.getMemory().setFlag(accumulator);
     //mettre à jour la mémoire flag
-    private int accumulator;
     
-    public OneAdressAssembly(Memory memory)
+    public static void store(String adress)
     {
-        super(memory);
+        MyDesktop.getMemory().store(adress,MyDesktop.getAccmulator().getValue());
     }
-    public void store(String adress)
+    public static void load(String adress)
     {
-        this.memory.store(adress, accumulator);
+        MyDesktop.getAccmulator().setValue(MyDesktop.getMemory().retrieve(adress));
     }
-    public void load(String adress)
+    public static void add(String adress)
     {
-        this.accumulator=this.memory.retrieve(adress);
+        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()+MyDesktop.getMemory().retrieve(adress));
     }
-    public void add(String adress)
+    public static void sub(String adress)
     {
-        this.accumulator+=this.memory.retrieve(adress);
+        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()-MyDesktop.getMemory().retrieve(adress));
     }
-    public void sub(String adress)
+    public static void mpy(String adress)
     {
-        this.accumulator-=this.memory.retrieve(adress);
-        
+        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()*MyDesktop.getMemory().retrieve(adress)); 
     }
-    public void mpy(String adress)
+    public static void div(String adress)
     {
-        this.accumulator*=this.memory.retrieve(adress);
-        
-    }
-    public void div(String adress)
-    {
-        this.accumulator/=this.memory.retrieve(adress);
+        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()/MyDesktop.getMemory().retrieve(adress));
     }
 
 }

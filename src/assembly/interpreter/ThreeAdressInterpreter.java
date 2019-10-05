@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assembly;
+package assembly.interpreter;
 
 /**
  *
  * @author _Nprime496_
  */
-public class MyDesktop {
-    private static Memory memory;
-    public static Memory getMemory()
-    {
-        if(memory==null)
-            return new Memory();
-        return memory;
-    }
+public class ThreeAdressInterpreter {
     
 }

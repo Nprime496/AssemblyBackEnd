@@ -5,6 +5,8 @@
  */
 package assembly;
 
+import assembly.memory.MyDesktop;
+
 
 /**
  *
@@ -13,48 +15,59 @@ package assembly;
 public class ZeroAdressAssembly extends Assembly {
 
     private int currentIndex;
-    private int stack[];
-    public ZeroAdressAssembly(Memory memory)
-    {
-        super(memory);
-        stack=new int[10];
-        this.currentIndex=0;
-    }
-    public void push(String adress)
-    {
-        currentIndex++;
-        stack[currentIndex]=memory.retrieve(adress);
-    }
-    public int pop(String adress)
-    {
-        currentIndex--;
-        int value=stack[currentIndex+1];
-        memory.store(adress,value);
-        return value;
-                ///(adress, stack[currentIndex]);
-    }
+
     
-    public void add() 
+    public static void add() 
     {
-        stack[currentIndex-1]+=stack[currentIndex];
-        currentIndex--;
+        MyDesktop.getStack().setSubHead(MyDesktop.getStack().getHead()+MyDesktop.getStack().getSubHead());
+        try
+        {
+             MyDesktop.getStack().pop();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
-    public void sub()
+    public static void sub()
     {
-        stack[currentIndex-1]-=stack[currentIndex];
-        currentIndex--;
+        //soustraction
+        MyDesktop.getStack().setSubHead(-MyDesktop.getStack().getHead()+MyDesktop.getStack().getSubHead());
+        try
+        {
+             MyDesktop.getStack().pop();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
-    public void div()
+    public static void div()
     {
-        stack[currentIndex-1]/=stack[currentIndex];
-        currentIndex--;
+        MyDesktop.getStack().setSubHead(MyDesktop.getStack().getSubHead()/MyDesktop.getStack().getHead());
+        try
+        {
+             MyDesktop.getStack().pop();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
-    public void mpy() {
-        stack[currentIndex-1]*=stack[currentIndex];
-        currentIndex--;
+    public static void mpy() {
+        //multiplication
+        MyDesktop.getStack().setSubHead(MyDesktop.getStack().getSubHead()*MyDesktop.getStack().getHead());
+        try
+        {
+             MyDesktop.getStack().pop();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 

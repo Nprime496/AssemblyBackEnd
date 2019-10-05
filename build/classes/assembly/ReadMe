@@ -1,0 +1,21 @@
+le projet est subdivisé en plusieurs packages principaux :
+/*
+-interface
+qui va récuperer les données que l'utilisateur va saisir sur l'IDE pour les enregistrer
+
+*/
+
+-fileuser
+qui est chargé de lire les fichiers crées par l'utilisateur
+
+-interpreter
+qui recupère les instructions et les traduit dans l'assembleur correspondant
+
+
+- assembly
+qui contient toutes les classes qui simulent l'assembleur comme nous le connaissons
+
+
+
+
+

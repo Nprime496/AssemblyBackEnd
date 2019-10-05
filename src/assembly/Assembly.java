@@ -5,21 +5,16 @@
  */
 package assembly;
 
+import assembly.memory.MyDesktop;
+
 /**
  *
  * @author _Nprime496_
  */
-class Assembly {
-    protected Memory memory;
-    public Assembly(Memory memory)
-    {
-        this.memory=memory;
-    }
-    public void print(String adress) {
-        System.out.println(memory.retrieve(adress));
-    }
+public class Assembly {
+
     public void setFlag(int result)
     {
-        this.memory.setFlag((result!=0)?(result/Math.abs(result)):0);
+        MyDesktop.getMemory().setFlag((result!=0)?(result/Math.abs(result)):0);
     }
 }
