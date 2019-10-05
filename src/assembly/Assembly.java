@@ -12,7 +12,9 @@ import assembly.memory.MyDesktop;
  * @author _Nprime496_
  */
 public class Assembly {
-
+    //la plupart des methodes des classes "assembleur" seront statiques car l'entité
+    //assembleur et ses opérations sont abstraites, cela n'a pas trop de sens
+    //de créer un objet Assembleur
     public void setFlag(int result)
     {
         MyDesktop.getMemory().setFlag((result!=0)?(result/Math.abs(result)):0);

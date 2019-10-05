@@ -13,9 +13,6 @@ import assembly.memory.MyDesktop;
  * @author _Nprime496_
  */
 public class ZeroAdressAssembly extends Assembly {
-
-    private int currentIndex;
-
     
     public static void add() 
     {
