@@ -12,6 +12,11 @@ import java.util.Map;
  * @author _Nprime496_
  */
 public class Parser {
+    private int nbParameters;
+    public Parser(int nb)
+    {
+        this.nbParameters=nb;
+    }
     public String SplitAdress(String instruction)
     {
         //trouve la chaine avant ":" et enleve tous les espaces
@@ -23,7 +28,7 @@ public class Parser {
         return operation;
         //trouve l'instruction à appeler      
     }
-    public String[] SplitOperands(String instruction,int nbParameters)
+    public String[] SplitOperands(String instruction)
     {
         String []operands=new String[nbParameters];
         for(int i=0;i<nbParameters;i++)
@@ -51,11 +56,11 @@ public class Parser {
         return branch;
     }
     
-    public Map SplitInstruction(String instruction,int nbParameters)
+    public Map SplitInstruction(String instruction)
     {
         String adress=this.SplitAdress(instruction.trim());
         String operation=this.SplitOperation(instruction.substring(adress.length()));
-        String[] operands=this.SplitOperands(instruction.substring(operation.length()),nbParameters);
+        String[] operands=this.SplitOperands(instruction.substring(operation.length()));
         
         return null;
     }

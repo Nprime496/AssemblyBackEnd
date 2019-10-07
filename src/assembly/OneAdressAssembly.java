@@ -39,5 +39,4 @@ public class OneAdressAssembly extends Assembly {
     {
         MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()/MyDesktop.getMemory().retrieve(adress));
     }
-
 }

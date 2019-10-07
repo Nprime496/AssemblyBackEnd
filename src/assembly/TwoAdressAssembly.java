@@ -13,7 +13,6 @@ import assembly.memory.MyDesktop;
  */
 public class TwoAdressAssembly extends Assembly{
 
-
     public static void add(String op1,String op2)
     {
         MyDesktop.getMemory().store(op1,MyDesktop.getMemory().retrieve(op1)+MyDesktop.getMemory().retrieve(op2));

@@ -7,6 +7,7 @@ package assembly.interpreter;
 
 import assembly.memory.Memory;
 import assembly.ZeroAdressAssembly;
+import assembly.parser.Parser;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +16,11 @@ import java.util.Map;
  * @author _Nprime496_
  */
 public class ZeroAdressInterpreter extends InterpreterWithOperands {
+    private static int NB_OPERANDS=0;
     public ZeroAdressInterpreter()
     {
         this.AssemblyMode=new ZeroAdressAssembly();
+        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
     public void interpretOperation(String[] operands)    

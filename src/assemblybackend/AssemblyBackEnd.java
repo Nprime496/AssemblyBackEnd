@@ -26,22 +26,7 @@ public class AssemblyBackEnd {
         Memory ComputerMemory=MyDesktop.getMemory();
         Stack ComputerStack=MyDesktop.getStack();
         ComputerMemory.store("A",16);
-        //ComputerMemory.store("AB",156);
         ComputerMemory.store("B",-10);
-        ComputerStack.push("A");
-        ComputerStack.push("B");
-        //ComputerStack.push("A");
-        //ComputerStack.push("B");
-        ZeroAdressAssembly.add();
-        //ZeroAdressAssembly.mpy();
-        try
-        {
-            ComputerStack.pop("A");
-        }
-        catch(Exception e)
-        {
-            System.out.println("la pile est vide");
-        }
-        MyDesktop.print("A");
+        MyDesktop.printMessage("Tout fonctionne!!");
     }
 }
