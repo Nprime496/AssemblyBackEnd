@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author _Nprime496_
  */
-public class Memory implements IMemory{
+public class Memory {//implements IMemory{
     private Map<String,Integer> memory;
     private int flag;
 
@@ -37,15 +37,25 @@ public class Memory implements IMemory{
         this.memory=new HashMap<String,Integer>();
         //System.out.println("MEMOIRE CRÉEE!!");
     }
-    @Override
     public void store(String adress,int value)
     {
         this.memory.put(adress,value);
     }
-    @Override
+
     public int retrieve(String adress)
     {
-        return (int)this.memory.get(adress);
+        //si l'adresse recherchée n'existe pas, une valeur aléatoire sera renvoyée
+        int value;
+        try
+        {
+            value= (int)this.memory.get(adress);
+        }
+        catch(NullPointerException e)
+        {
+            value=(int)(Math.random()*(Math.random()*100+Math.random()*50));
+            this.memory.put(adress,value);
+        }
+        return value;
     }
 
 }

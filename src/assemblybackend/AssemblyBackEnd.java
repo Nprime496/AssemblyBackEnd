@@ -7,8 +7,13 @@ package assemblybackend;
 
 import assembly.memory.Memory;
 import assembly.memory.MyDesktop;
-import assembly.TwoAdressAssembly;
+
+import static assembly.TwoAdressAssembly.*;
+import static assembly.OneAdressAssembly.*;
+import static assembly.ZeroAdressAssembly.*;
+import static assembly.ThreeAdressAssembly.*;
 import assembly.ZeroAdressAssembly;
+import static assembly.memory.MyDesktop.*;
 import assembly.memory.Stack;
 
 
@@ -23,10 +28,12 @@ public class AssemblyBackEnd {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Memory ComputerMemory=MyDesktop.getMemory();
-        Stack ComputerStack=MyDesktop.getStack();
-        ComputerMemory.store("A",16);
-        ComputerMemory.store("B",-10);
-        MyDesktop.printMessage("Tout fonctionne!!");
+        Memory computerMemory=MyDesktop.getMemory();
+        computerMemory.store("A",16);
+        computerMemory.store("B",10);
+        //add("C","B");
+        add("A","B");
+        div("A","B");
+        print("A");
     }
 }

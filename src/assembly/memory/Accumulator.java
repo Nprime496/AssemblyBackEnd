@@ -13,7 +13,7 @@ public class Accumulator {
     private int value;
     public Accumulator()
     {
-        this.value=(int)(Math.random()*(Math.random()*100+Math.random()*50));
+        this.value=(int)(Math.random()*(Math.random()*100+Math.random()*50));//juste pour donner une valeur aleatoire
     }
     public int getValue() {
         return value;
