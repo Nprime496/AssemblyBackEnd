@@ -27,8 +27,12 @@ public class AssemblyBackEnd {
         Memory computerMemory=MyDesktop.getMemory();
         InterpreterTwoAdress interpreter=new InterpreterTwoAdress();
         computerMemory.store("A",16);
-        computerMemory.store("B",10);
-        interpreter.interpretOperation("l1: sub A,B");
+        computerMemory.store("B",4);
+        computerMemory.store("X",17);
+        //interpreter.interpretOperation("l1: sub A,B");
+        //interpreter.interpretOperation("mpy A,X");
+        //interpreter.interpretOperation("l2: div A,B");
+        interpreter.interpretText("l2: div A,B\nmpy A,X");
         print("A");
     }
 }

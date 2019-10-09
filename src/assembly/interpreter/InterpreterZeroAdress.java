@@ -23,7 +23,7 @@ public class InterpreterZeroAdress extends Interpreter {
         this.CommandParser=new InterpreterParser(NB_OPERANDS);
     }
     @Override
-    public void interpret(Instruction instruction)    
+    protected void interpret(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
@@ -47,8 +47,5 @@ public class InterpreterZeroAdress extends Interpreter {
         }
     }
 
-    public void interpretOperation(String instruction) {
-        this.interpret(this.CommandParser.SplitInstruction(instruction));
-    }
 
 }

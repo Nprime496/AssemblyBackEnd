@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="DESKTOP-8IL8ACG" name="assembly.parser.ParserTest" skipped="0" tests="5" time="0.101" timestamp="2019-10-09T07:43:10">
+<testsuite errors="0" failures="0" hostname="DESKTOP-8IL8ACG" name="assembly.parser.ParserTest" skipped="0" tests="5" time="0.088" timestamp="2019-10-09T19:12:17">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="FR" />
@@ -57,7 +57,7 @@
     <property name="libs.Comet-GlassFish-v3.javadoc" value="" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.j2me_common_ant.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner assembly.parser.ParserTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\test\results\TEST-assembly.parser.ParserTest.xml crashfile=C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\junitvmwatcher5304012918572665180.properties propsfile=C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\junit4061409131562805281.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner assembly.parser.ParserTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\test\results\TEST-assembly.parser.ParserTest.xml crashfile=C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\junitvmwatcher5190968513709382914.properties propsfile=C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\junit1375649142283027640.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -111,11 +111,12 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
     <property name="libs.jaxb.javadoc" value="C:\Program Files (x86)\NetBeans 8.2\ide\docs\jaxb-api-doc.zip" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="C:\Program Files (x86)\NetBeans 8.2\extide\ant" />
     <property name="libs.junit_4.src" value="C:\Program Files (x86)\NetBeans 8.2\platform\docs\junit-4.12-sources.jar" />
     <property name="libs.absolutelayout.maven-pom" value="" />
     <property name="ant.java.version" value="1.8" />
-    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_162\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\matlab\runtime\win64;C:\Program Files (x86)\matlab\bin;C:\Program Files (x86)\matlab\polyspace\bin;C:\Program Files (x86)\CodeBlocks\MinGW\bin;C:\Program Files\Calibre2\;C:\Program Files (x86)\Java\jdk1.7.0_17\bin;C:\Program Files (x86)\nodejs\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files (x86)\Java\jdk1.8.0_162\bin;D:\SOFTWARE\logiciel\ES-1.1.0.15;C:\Users\_Nprime496_\AppData\Local\bin\NASM;C:\custom\gradle-5.4.1-all\gradle-5.4.1\bin;C:\Users\_Nprime496_\AppData\Local\Microsoft\WindowsApps;C:\Users\_Nprime496_\AppData\Roaming\npm;C:\Users\_Nprime496_\AppData\Local\Programs\Git\cmd;." />
+    <property name="java.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_162\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\matlab\runtime\win64;C:\Program Files (x86)\matlab\bin;C:\Program Files (x86)\matlab\polyspace\bin;C:\Program Files (x86)\CodeBlocks\MinGW\bin;C:\Program Files\Calibre2\;C:\Program Files (x86)\Java\jdk1.7.0_17\bin;C:\Program Files (x86)\nodejs\;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Program Files (x86)\Java\jdk1.8.0_162\bin;D:\SOFTWARE\logiciel\ES-1.1.0.15;C:\Users\_Nprime496_\AppData\Local\bin\NASM;C:\custom\gradle-5.4.1-all\gradle-5.4.1\bin;C:\Users\_Nprime496_\AppData\Local\Microsoft\WindowsApps;C:\Users\_Nprime496_\AppData\Roaming\npm;C:\Users\_Nprime496_\AppData\Local\Programs\Git\cmd;C:\Users\_Nprime496_\AppData\Local\atom\bin;." />
     <property name="javadoc.author" value="false" />
     <property name="libs.metro.maven-pom" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.src" value="" />
@@ -289,8 +290,8 @@
     <property name="libs.j2me_common_ant.classpath" value="C:\Program Files (x86)\NetBeans 8.2\mobility\modules\org-netbeans-modules-j2me-common-ant.jar;C:\Program Files (x86)\NetBeans 8.2\java\modules\org-netbeans-modules-classfile.jar" />
     <property name="dist.javadoc.dir" value="dist/javadoc" />
     <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
-    <property name="javac.source" value="1.8" />
     <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.8" />
     <property name="line.separator" value="&#xd;&#xa;" />
     <property name="java.specification.version" value="1.8" />
     <property name="java.vm.info" value="mixed mode, sharing" />
@@ -302,13 +303,13 @@
     <property name="built-jar.properties" value="C:\Users\_Nprime496_\Documents\NetBeansProjects\AssemblyBackEnd\build\built-jar.properties" />
     <property name="build.test.classes.dir" value="build/test/classes" />
     <property name="src.dir" value="src" />
-    <property name="libs.jpa2-persistence.src" value="" />
     <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
+    <property name="libs.jpa2-persistence.src" value="" />
     <property name="annotation.processing.enabled" value="true" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.jpa20-persistence.src" value="" />
-    <property name="libs.jsf12.src" value="" />
     <property name="libs.DataBindingME-SVG.maven-pom" value="" />
+    <property name="libs.jsf12.src" value="" />
     <property name="libs.JAVADB_DRIVER_LABEL.maven-pom" value="" />
     <property name="ignore.failing.tests" value="true" />
     <property name="libs.Comet-GlassFish-v3.classpath" value="" />
@@ -317,13 +318,13 @@
     <property name="dist.dir" value="dist" />
     <property name="libs.groovy-all.javadoc" value="" />
     <property name="testng.debug.mode" value="" />
-    <property name="libs.groovy-all.classpath" value="C:\Program Files (x86)\NetBeans 8.2\groovy\modules\ext\groovy-all.jar" />
     <property name="javac.fork" value="true" />
+    <property name="libs.groovy-all.classpath" value="C:\Program Files (x86)\NetBeans 8.2\groovy\modules\ext\groovy-all.jar" />
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.8" />
     <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="libs.MySQLDriver.src" value="" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_162-b12" />
     <property name="default.javac.target" value="1.8" />
@@ -352,8 +353,8 @@
     <property name="application.args" value="" />
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="C:\Program Files (x86)\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.javaee-api-7.0.maven-pom" value="" />
-    <property name="main.class.available" value="true" />
     <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="main.class.available" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
@@ -362,8 +363,8 @@
     <property name="nb.internal.action.name" value="test" />
     <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files (x86)\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files (x86)\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files (x86)\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files (x86)\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files (x86)\NetBeans 8.2\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files (x86)\NetBeans 8.2\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.jsp-compiler.maven-pom" value="" />
@@ -385,16 +386,16 @@
     <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
     <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files (x86)\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="assembly.parser.ParserTest" name="testSplitOperands" time="0.007" />
-  <testcase classname="assembly.parser.ParserTest" name="testSplitAdress" time="0.002" />
+  <testcase classname="assembly.parser.ParserTest" name="testSplitOperands" time="0.009" />
+  <testcase classname="assembly.parser.ParserTest" name="testSplitAdress" time="0.001" />
   <testcase classname="assembly.parser.ParserTest" name="testSplitBranch" time="0.0" />
-  <testcase classname="assembly.parser.ParserTest" name="testSplitOperation" time="0.0" />
+  <testcase classname="assembly.parser.ParserTest" name="testSplitOperation" time="0.001" />
   <testcase classname="assembly.parser.ParserTest" name="testSplitInstruction" time="0.0" />
   <system-out><![CDATA[SplitOperands
 SplitAdress

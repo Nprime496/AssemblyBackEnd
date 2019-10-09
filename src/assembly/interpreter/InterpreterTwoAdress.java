@@ -22,8 +22,8 @@ public class InterpreterTwoAdress extends Interpreter{
         this.AssemblyMode=new AssemblyTwoAdress();
         this.CommandParser=new InterpreterParser(NB_OPERANDS);
     }
-       @Override
-    public void interpret(Instruction instruction)    
+    @Override
+    protected void interpret(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
@@ -50,8 +50,5 @@ public class InterpreterTwoAdress extends Interpreter{
             }
         }
     }
-    public void interpretOperation(String instruction)
-    {
-        this.interpret(this.CommandParser.SplitInstruction(instruction));
-    }
+
 }

@@ -10,6 +10,7 @@ import static assembly.Command.*;
 import assembly.AssemblyTwoAdress;
 
 import assembly.AssemblyZeroAdress;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -19,31 +20,30 @@ import java.util.Map;
 public abstract class Interpreter {
     protected InterpreterParser CommandParser;
     protected Assembly AssemblyMode;
-   public void interpret(Instruction instruction)    
+    protected abstract void interpret(Instruction instruction);
+    public void interpretBatch(ArrayList<Instruction> instruction)
     {
-        if(instruction instanceof InstructionOperation)
+        for(Instruction i:instruction)
         {
-            instruction=((InstructionOperation)instruction);
-            if(((InstructionOperation)instruction).getOperation().equals(_ADD_))
-            {
-                ((AssemblyTwoAdress)this.AssemblyMode).add(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
-            }
-            else if(((InstructionOperation)instruction).getOperation().equals(_SUB_))
-            {
-                ((AssemblyTwoAdress)this.AssemblyMode).sub(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
-            }
-            else if(((InstructionOperation)instruction).getOperation().equals(_DIV_))
-            {
-                ((AssemblyTwoAdress)this.AssemblyMode).div(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
-            }
-            else if(((InstructionOperation)instruction).getOperation().equals(_MPY_));
-            {
-                ((AssemblyTwoAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
-            }
+            this.interpret(i);
+        }
+    }
+    public void interpretLine(String instruction)
+    {
+        this.interpret(this.CommandParser.SplitInstruction(instruction));
+    }
+    public void interpretText(String text)
+    {
+        //on suppose qu'il y'a une instruction par ligne
+        String[] lines=text.split("\n");
+        for(String line:lines)
+        {
+            this.interpretLine(line);
         }
     }
     void branch(String adress)
     {
-        
+        //en cours...
     }
+    
 }

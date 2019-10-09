@@ -51,7 +51,7 @@ public class ParserTest {
         System.out.println("SplitAdress");
         String instruction = "dfd : operation";
         InterpreterParser instance = new InterpreterParser(5);
-        Pair<String, String> expResult = new Pair("dfd "," operation");
+        Pair<String, String> expResult = new Pair("dfd","operation");
         
         Pair<String, String> result = instance.SplitAdress(instruction);
 

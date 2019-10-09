@@ -24,7 +24,7 @@ public class InterpreterThreeAdress extends Interpreter{
         this.CommandParser=new InterpreterParser(NB_OPERANDS);
     }
     @Override
-    public void interpret(Instruction instruction)    
+    protected void interpret(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
@@ -51,4 +51,5 @@ public class InterpreterThreeAdress extends Interpreter{
             }
         }
     }
+
 }
