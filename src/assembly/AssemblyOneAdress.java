@@ -11,7 +11,7 @@ import assembly.memory.MyDesktop;
  *
  * @author _Nprime496_
  */
-public class OneAdressAssembly extends Assembly {
+public class AssemblyOneAdress extends Assembly {
     //MyDesktop.getMemory().setFlag(accumulator);
     //mettre à jour la mémoire flag
     

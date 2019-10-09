@@ -12,7 +12,7 @@ import assembly.memory.MyDesktop;
  *
  * @author _Nprime496_
  */
-public class ZeroAdressAssembly extends Assembly {
+public class AssemblyZeroAdress extends Assembly {
     
     public static void add() 
     {

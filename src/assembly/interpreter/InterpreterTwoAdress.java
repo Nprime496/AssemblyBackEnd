@@ -5,45 +5,53 @@
  */
 package assembly.interpreter;
 
-import assembly.Assembly;
-import static assembly.Command.*;
+import static assembly.Command._ADD_;
+import static assembly.Command._DIV_;
+import static assembly.Command._MPY_;
+import static assembly.Command._SUB_;
 import assembly.AssemblyTwoAdress;
-
-import assembly.AssemblyZeroAdress;
-import java.util.Map;
 
 /**
  *
  * @author _Nprime496_
  */
-public abstract class Interpreter {
-    protected InterpreterParser CommandParser;
-    protected Assembly AssemblyMode;
-   public void interpret(Instruction instruction)    
+public class InterpreterTwoAdress extends Interpreter{
+    private static int NB_OPERANDS=2;
+    public InterpreterTwoAdress()
+    {
+        this.AssemblyMode=new AssemblyTwoAdress();
+        this.CommandParser=new InterpreterParser(NB_OPERANDS);
+    }
+       @Override
+    public void interpret(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
             instruction=((InstructionOperation)instruction);
-            if(((InstructionOperation)instruction).getOperation().equals(_ADD_))
+            if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_ADD_))
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).add(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
-            else if(((InstructionOperation)instruction).getOperation().equals(_SUB_))
+            else if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_SUB_))
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).sub(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
-            else if(((InstructionOperation)instruction).getOperation().equals(_DIV_))
+            else if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_DIV_))
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).div(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
-            else if(((InstructionOperation)instruction).getOperation().equals(_MPY_));
+            else if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_MPY_))
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
+            else
+            {
+                System.out.println("operation non supportée");   
+            }
         }
     }
-    void branch(String adress)
+    public void interpretOperation(String instruction)
     {
-        
+        this.interpret(this.CommandParser.SplitInstruction(instruction));
     }
 }

@@ -11,11 +11,11 @@ import java.util.Objects;
  *
  * @author _Nprime496_
  */
-public class InstructionBranchement extends Instruction{
+public class InstructionBranch extends Instruction{
     private String branchement;
     private String destination;
 
-    public InstructionBranchement(String adresse,String branchement, String destination) {
+    public InstructionBranch(String adresse,String branchement, String destination) {
         this.branchement = branchement;
         this.destination = destination;
         this.adresse=adresse;
@@ -45,9 +45,9 @@ public class InstructionBranchement extends Instruction{
     @Override
     public boolean equals(Object autre)
     {
-        if(!(autre instanceof InstructionBranchement))
+        if(!(autre instanceof InstructionBranch))
             return false;
-        return (this.branchement.equals(((InstructionBranchement)autre).getBranchement()) && this.destination.equals(((InstructionBranchement)autre).destination));
+        return (this.branchement.equals(((InstructionBranch)autre).getBranchement()) && this.destination.equals(((InstructionBranch)autre).destination));
     }
 
     @Override

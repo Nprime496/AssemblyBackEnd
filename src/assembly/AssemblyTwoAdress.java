@@ -11,7 +11,7 @@ import assembly.memory.MyDesktop;
  *
  * @author _Nprime496_
  */
-public class TwoAdressAssembly extends Assembly{
+public class AssemblyTwoAdress extends Assembly{
 
     public static void add(String op1,String op2)
     {

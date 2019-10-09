@@ -1,8 +1,8 @@
 Ceci est un projet qui tend à simuler le language assembleur avec Java dans le but final de créer un IDE allant permettant la traduction du code pseudo-assembleur.
 il n'est pas terminé mais je le soumet à votre jugement pour je l'espère pouvoir corriger quelques manquements ou erreurs.
 
-le package interpreter est encore en phase d'écriture, le contenus des méthodes ne sont justes que des reflets de mon imagination, prière de ne pas en
-tenir compte, j'aimerais donc avoir des pensées sur comment implémenter cet interpreteur d'instruction;
+new !!
+par rapport à la dernière version, les classes interpreter ont été remplies et fonctionnent pratiquement
 
 
 le projet est subdivisé en plusieurs packages :

@@ -8,13 +8,9 @@ package assemblybackend;
 import assembly.memory.Memory;
 import assembly.memory.MyDesktop;
 
-import static assembly.TwoAdressAssembly.*;
-import static assembly.OneAdressAssembly.*;
-import static assembly.ZeroAdressAssembly.*;
-import static assembly.ThreeAdressAssembly.*;
-import assembly.ZeroAdressAssembly;
+import static assembly.AssemblyTwoAdress.*;
+import assembly.interpreter.InterpreterTwoAdress;
 import static assembly.memory.MyDesktop.*;
-import assembly.memory.Stack;
 
 
 /**
@@ -29,11 +25,10 @@ public class AssemblyBackEnd {
     public static void main(String[] args) {
         // TODO code application logic here
         Memory computerMemory=MyDesktop.getMemory();
+        InterpreterTwoAdress interpreter=new InterpreterTwoAdress();
         computerMemory.store("A",16);
         computerMemory.store("B",10);
-        //add("C","B");
-        add("A","B");
-        div("A","B");
+        interpreter.interpretOperation("l1: sub A,B");
         print("A");
     }
 }

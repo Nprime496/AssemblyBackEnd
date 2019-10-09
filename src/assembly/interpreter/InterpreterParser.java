@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assembly.parser;
+package assembly.interpreter;
 
 import assembly.interpreter.Instruction;
-import assembly.interpreter.InstructionBranchement;
+import assembly.interpreter.InstructionBranch;
 import assembly.interpreter.InstructionOperation;
 import java.util.Arrays;
 import java.util.List;
@@ -17,9 +17,9 @@ import javafx.util.Pair;
  *
  * @author _Nprime496_
  */
-public class Parser {
+public class InterpreterParser {
     private int nbParameters;//le nombre de paramètres de l'instruction qui est parsée
-    public Parser(int nb)
+    public InterpreterParser(int nb)
     {
         this.nbParameters=nb;
     }
@@ -27,23 +27,26 @@ public class Parser {
     {
         //trouve la chaine avant ":" et enleve tous les espaces et retourne une paire où le premier élement est l'adresse
         int pos=instruction.indexOf(":");
-        return new Pair(instruction.substring(0,pos),instruction.substring(pos+1));    
+        if (pos>-1)
+            return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1).trim());
+        return new Pair(null,instruction);
     }
     public Pair<String,String> SplitOperation(String instruction)
     {
         int pos=instruction.indexOf(" ");
-        return new Pair(instruction.trim().substring(0,pos),instruction.substring(pos+1));
+        return new Pair(instruction.trim().substring(0,pos).trim(),instruction.substring(pos+1).trim());
         //trouve l'instruction à appeler      
     }
     public String[] SplitOperands(String instruction)
     {
+        //chercher a appliquer trim sur chaque element du tableau
         //retourne une exception si le nombre d' operandes est superieur à this.nbParameters]
         return instruction.split(",");//supprime les espaces puis divise
     }
     public Pair<String,String> SplitBranch(String instruction)
     {
         int pos=instruction.trim().indexOf(" ");
-        return new Pair(instruction.substring(0,pos),instruction.substring(pos+1));
+        return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1));
     }
     
     public Instruction SplitInstruction(String instruction)
@@ -62,7 +65,7 @@ public class Parser {
             try
             {
                 tmpPair=this.SplitBranch(tmpPair.getValue());
-                return new InstructionBranchement(adress,tmpPair.getKey(),tmpPair.getValue());
+                return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
                 
             }
             catch(Exception neitherABranch)
