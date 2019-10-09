@@ -5,7 +5,7 @@
  */
 package assembly.memory;
 
-import assembly.memory.IMemory;
+
 import java.util.HashMap;
 import java.util.Map;
 

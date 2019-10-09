@@ -6,21 +6,25 @@
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assemblybackend/AssemblyBackEnd.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Accumulator.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/ThreeAdressInterpreter.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InstructionBranchement.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/parser/Parser.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InterpreterWithOperands.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Memory.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/OneAdressInterpreter.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/ThreeAdressAssembly.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/settings</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/Instruction.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/OneAdressAssembly.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/MyDesktop.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/FileUser/FileUser.java</file>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/IMemory.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/Command.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InstructionOperation.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/ZeroAdressInterpreter.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/Assembly.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/TwoAdressInterpreter.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Stack.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/TwoAdressAssembly.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/test/assembly/parser/ParserTest.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/ZeroAdressAssembly.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/Interpreter.java</file>
         </group>

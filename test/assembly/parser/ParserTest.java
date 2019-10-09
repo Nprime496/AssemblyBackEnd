@@ -5,10 +5,13 @@
  */
 package assembly.parser;
 
+import assembly.interpreter.Instruction;
+import assembly.interpreter.InstructionOperation;
 import java.util.Map;
 import javafx.util.Pair;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -50,10 +53,9 @@ public class ParserTest {
         Pair<String, String> expResult = new Pair("dfd "," operation");
         
         Pair<String, String> result = instance.SplitAdress(instruction);
-        //System.out.println(result.getKey()+"-");
+
         assertEquals(expResult.hashCode(), result.hashCode());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+
     }
 
     /**
@@ -67,8 +69,7 @@ public class ParserTest {
         Pair<String, String> expResult = new Pair("gfg","fgsf");
         Pair<String, String> result = instance.SplitOperation(instruction);
         assertEquals(expResult.hashCode(), result.hashCode());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+
     }
 
     /**
@@ -77,13 +78,13 @@ public class ParserTest {
     @Test
     public void testSplitOperands() {
         System.out.println("SplitOperands");
-        String instruction = "";
-        Parser instance = null;
-        String[] expResult = null;
+        String instruction = "1,3,de";
+        Parser instance = new Parser(3);
+        String[] expResult = {"1","3","de"};
         String[] result = instance.SplitOperands(instruction);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -92,13 +93,13 @@ public class ParserTest {
     @Test
     public void testSplitBranch() {
         System.out.println("SplitBranch");
-        String instruction = "";
-        Parser instance = null;
-        Pair<String, String> expResult = null;
+        String instruction = "br dd";
+        Parser instance = new Parser(4);
+        Pair<String, String> expResult = new Pair("br","dd");
         Pair<String, String> result = instance.SplitBranch(instruction);
-        assertEquals(expResult, result);
+        assertEquals(expResult.hashCode(), result.hashCode());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
 
@@ -109,13 +110,17 @@ public class ParserTest {
     @Test
     public void testSplitInstruction() {
         System.out.println("SplitInstruction");
-        String instruction = "";
-        Parser instance = null;
-        Map expResult = null;
-        Map result = instance.SplitInstruction(instruction);
-        assertEquals(expResult, result);
+        String instruction = "a:add c,d";
+        Parser instance = new Parser(2);
+        String[] operands={"c","d"};
+        Instruction expResult = new InstructionOperation("a","add",operands);
+        Instruction result = instance.SplitInstruction(instruction);
+        //assertEquals(expResult, result);
+        //System.out.println(result);
+        Assert.assertEquals(expResult, result);
+        //Assert.ass
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

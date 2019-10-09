@@ -5,6 +5,9 @@
  */
 package assembly.parser;
 
+import assembly.interpreter.Instruction;
+import assembly.interpreter.InstructionBranchement;
+import assembly.interpreter.InstructionOperation;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +27,6 @@ public class Parser {
     {
         //trouve la chaine avant ":" et enleve tous les espaces et retourne une paire où le premier élement est l'adresse
         int pos=instruction.indexOf(":");
-        System.out.println("pos: "+pos);
         return new Pair(instruction.substring(0,pos),instruction.substring(pos+1));    
     }
     public Pair<String,String> SplitOperation(String instruction)
@@ -40,35 +42,36 @@ public class Parser {
     }
     public Pair<String,String> SplitBranch(String instruction)
     {
-        int pos=instruction.trim().indexOf("");
+        int pos=instruction.trim().indexOf(" ");
         return new Pair(instruction.substring(0,pos),instruction.substring(pos+1));
     }
     
-    public Map SplitInstruction(String instruction)
+    public Instruction SplitInstruction(String instruction)
     {
         Pair<String,String> tmpPair=this.SplitAdress(instruction);
         String adress=tmpPair.getKey();
-        if(adress!=null)
+
+        try
+        {
+            tmpPair=this.SplitOperation(tmpPair.getValue());
+            String[] operands=this.SplitOperands(tmpPair.getValue());
+            return new InstructionOperation(adress,tmpPair.getKey(),operands);
+        }
+        catch(Exception notAnOperation)
         {
             try
             {
-                tmpPair=this.SplitOperation(tmpPair.getValue());
-                String[] operands=this.SplitOperands(tmpPair.getValue());
+                tmpPair=this.SplitBranch(tmpPair.getValue());
+                return new InstructionBranchement(adress,tmpPair.getKey(),tmpPair.getValue());
+                
             }
-            catch(Exception notAnOperation)
+            catch(Exception neitherABranch)
             {
-                try
-                {
-                    this.SplitBranch(tmpPair.getValue());
-                }
-                catch(Exception neitherABranch)
-                {
-                    neitherABranch.printStackTrace();
-                }
-                notAnOperation.printStackTrace();
+                neitherABranch.printStackTrace();
             }
+            notAnOperation.printStackTrace();
         }
-        this.SplitInstruction(tmpPair.getKey());
+
         return null;
     }
     
