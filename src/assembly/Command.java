@@ -21,5 +21,6 @@ public abstract class Command {
     public static String _PUSH_="PUSH";
     public static String _STORE_="STORE";
     public static String _LOAD_="LOAD";
+    public static String _STOP_="STOP";
     
 }

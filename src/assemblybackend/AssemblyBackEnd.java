@@ -9,6 +9,9 @@ import assembly.memory.Memory;
 import assembly.memory.MyDesktop;
 
 import static assembly.AssemblyTwoAdress.*;
+import assembly.filemanager.FileManager;
+import assembly.filemanager.Parser;
+import assembly.interpreter.Interpreter;
 import assembly.interpreter.InterpreterTwoAdress;
 import static assembly.memory.MyDesktop.*;
 
@@ -26,13 +29,20 @@ public class AssemblyBackEnd {
         // TODO code application logic here
         Memory computerMemory=MyDesktop.getMemory();
         InterpreterTwoAdress interpreter=new InterpreterTwoAdress();
-        computerMemory.store("A",16);
-        computerMemory.store("B",4);
-        computerMemory.store("X",17);
-        //interpreter.interpretOperation("l1: sub A,B");
-        //interpreter.interpretOperation("mpy A,X");
-        //interpreter.interpretOperation("l2: div A,B");
-        interpreter.interpretText("l2: div A,B\nmpy A,X");
+        computerMemory.store("A",6);
+        computerMemory.store("B",2);
+        computerMemory.store("X",5);
+        Test();
+        //interpreter.interpretTextInstructions("l2: div A,B \n mpy A,X");
+        //System.out.println(MyDesktop.getMemory().retrieve("2"));
         print("A");
+    }
+    public static void Test()
+    {
+        FileManager manager=new FileManager(new Parser(3));
+        Interpreter interpreter=new InterpreterTwoAdress();
+        String instruction="l2: div A,B \n mpy A,X \n sub A,B \n stop ";
+        manager.loadInMemory(instruction);
+        interpreter.InterpretMemoryInstructions();
     }
 }

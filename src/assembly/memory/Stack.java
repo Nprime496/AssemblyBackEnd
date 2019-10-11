@@ -21,7 +21,7 @@ public class Stack {
     public void push(String adress)
     {
         currentIndex++;
-        stack[currentIndex]=MyDesktop.getMemory().retrieve(adress);
+        stack[currentIndex]=(Integer)MyDesktop.getMemory().retrieve(adress);
     }
     public int getHead()
     {

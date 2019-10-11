@@ -5,9 +5,11 @@
  */
 package assembly.interpreter;
 
+import assembly.filemanager.Parser;
 import static assembly.Command.*;
 import assembly.memory.Memory;
 import assembly.AssemblyZeroAdress;
+import assembly.memory.MyDesktop;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,10 +22,10 @@ public class InterpreterZeroAdress extends Interpreter {
     public InterpreterZeroAdress()
     {
         this.AssemblyMode=new AssemblyZeroAdress();
-        this.CommandParser=new InterpreterParser(NB_OPERANDS);
+        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
-    protected void interpret(Instruction instruction)    
+    protected void interpretOperation(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
@@ -44,6 +46,7 @@ public class InterpreterZeroAdress extends Interpreter {
             {
                 ((AssemblyZeroAdress)this.AssemblyMode).mpy();
             }
+            MyDesktop.getFlag().setValue((Integer)MyDesktop.getStack().getHead());
         }
     }
 

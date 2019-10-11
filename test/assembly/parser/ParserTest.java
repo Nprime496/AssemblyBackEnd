@@ -5,7 +5,7 @@
  */
 package assembly.parser;
 
-import assembly.interpreter.InterpreterParser;
+import assembly.filemanager.Parser;
 import assembly.interpreter.Instruction;
 import assembly.interpreter.InstructionOperation;
 import java.util.Map;
@@ -50,7 +50,7 @@ public class ParserTest {
     public void testSplitAdress() {
         System.out.println("SplitAdress");
         String instruction = "dfd : operation";
-        InterpreterParser instance = new InterpreterParser(5);
+        Parser instance = new Parser(5);
         Pair<String, String> expResult = new Pair("dfd","operation");
         
         Pair<String, String> result = instance.SplitAdress(instruction);
@@ -66,7 +66,7 @@ public class ParserTest {
     public void testSplitOperation() {
         System.out.println("SplitOperation");
         String instruction = "gfg fgsf";
-        InterpreterParser instance = new InterpreterParser(9);
+        Parser instance = new Parser(9);
         Pair<String, String> expResult = new Pair("gfg","fgsf");
         Pair<String, String> result = instance.SplitOperation(instruction);
         assertEquals(expResult.hashCode(), result.hashCode());
@@ -80,7 +80,7 @@ public class ParserTest {
     public void testSplitOperands() {
         System.out.println("SplitOperands");
         String instruction = "1,3,de";
-        InterpreterParser instance = new InterpreterParser(3);
+        Parser instance = new Parser(3);
         String[] expResult = {"1","3","de"};
         String[] result = instance.SplitOperands(instruction);
         assertArrayEquals(expResult, result);
@@ -95,7 +95,7 @@ public class ParserTest {
     public void testSplitBranch() {
         System.out.println("SplitBranch");
         String instruction = "br dd";
-        InterpreterParser instance = new InterpreterParser(4);
+        Parser instance = new Parser(4);
         Pair<String, String> expResult = new Pair("br","dd");
         Pair<String, String> result = instance.SplitBranch(instruction);
         assertEquals(expResult.hashCode(), result.hashCode());
@@ -112,7 +112,7 @@ public class ParserTest {
     public void testSplitInstruction() {
         System.out.println("SplitInstruction");
         String instruction = "a:add c,d";
-        InterpreterParser instance = new InterpreterParser(2);
+        Parser instance = new Parser(2);
         String[] operands={"c","d"};
         Instruction expResult = new InstructionOperation("a","add",operands);
         Instruction result = instance.SplitInstruction(instruction);

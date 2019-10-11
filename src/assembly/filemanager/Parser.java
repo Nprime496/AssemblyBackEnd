@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assembly.interpreter;
+package assembly.filemanager;
 
 import assembly.interpreter.Instruction;
+import assembly.interpreter.Instruction;
 import assembly.interpreter.InstructionBranch;
+import assembly.interpreter.InstructionBranch;
+import assembly.interpreter.InstructionOperation;
 import assembly.interpreter.InstructionOperation;
 import java.util.Arrays;
 import java.util.List;
@@ -17,9 +20,9 @@ import javafx.util.Pair;
  *
  * @author _Nprime496_
  */
-public class InterpreterParser {
+public class Parser {
     private int nbParameters;//le nombre de paramètres de l'instruction qui est parsée
-    public InterpreterParser(int nb)
+    public Parser(int nb)
     {
         this.nbParameters=nb;
     }
@@ -30,7 +33,7 @@ public class InterpreterParser {
         int pos=instruction.indexOf(":");
         if (pos>-1)
             return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1).trim());
-        return new Pair(null,instruction);
+        return new Pair(null,instruction.trim());
     }
     public Pair<String,String> SplitOperation(String instruction)
     {
@@ -44,13 +47,18 @@ public class InterpreterParser {
         //separe les operandes
         //chercher a appliquer trim sur chaque element du tableau
         //retourne une exception si le nombre d' operandes est superieur à this.nbParameters]
-        return instruction.split(",");//supprime les espaces puis divise
+        String[] l=instruction.split(",");//supprime les espaces puis divise
+        for(int i=0;i<l.length;i++)
+            l[i]=l[i].trim();
+        return l;
     }
     public Pair<String,String> SplitBranch(String instruction)
     {
         //separe le type de branchement de l'adresse
         int pos=instruction.trim().indexOf(" ");
-        return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1));
+        if(pos<instruction.length() && pos>-1)
+            return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1));
+        return new Pair(instruction,null);//cas particulier de STOP
     }
     public Pair<String,String> SplitCommentary(String instruction)
     {

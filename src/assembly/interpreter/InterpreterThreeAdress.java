@@ -5,12 +5,14 @@
  */
 package assembly.interpreter;
 
+import assembly.filemanager.Parser;
 import static assembly.Command._ADD_;
 import static assembly.Command._DIV_;
 import static assembly.Command._MPY_;
 import static assembly.Command._SUB_;
 import assembly.AssemblyThreeAdress;
 import assembly.AssemblyTwoAdress;
+import assembly.memory.MyDesktop;
 
 /**
  *
@@ -21,10 +23,10 @@ public class InterpreterThreeAdress extends Interpreter{
     public InterpreterThreeAdress()
     {
         this.AssemblyMode=new AssemblyTwoAdress();
-        this.CommandParser=new InterpreterParser(NB_OPERANDS);
+        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
-    protected void interpret(Instruction instruction)    
+    protected void interpretOperation(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
         {
@@ -49,6 +51,7 @@ public class InterpreterThreeAdress extends Interpreter{
             {
                 System.out.println("operation non supportée");   
             }
+            MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
         }
     }
 

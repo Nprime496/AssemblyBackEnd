@@ -16,18 +16,18 @@ public class AssemblyThreeAdress extends Assembly{
   
     public static void add(String op1,String op2,String op3)
     {
-        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)+MyDesktop.getMemory().retrieve(op2));
+        MyDesktop.getMemory().store(op3,(Integer)MyDesktop.getMemory().retrieve(op1)+(Integer)MyDesktop.getMemory().retrieve(op2));
     }
     public static void sub(String op1,String op2,String op3)
     {
-        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)-MyDesktop.getMemory().retrieve(op2));
+        MyDesktop.getMemory().store(op3,(Integer)MyDesktop.getMemory().retrieve(op1)-(Integer)MyDesktop.getMemory().retrieve(op2));
     }
     public static void mpy(String op1,String op2,String op3)
     {
-        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)*MyDesktop.getMemory().retrieve(op2));
+        MyDesktop.getMemory().store(op3,(Integer)MyDesktop.getMemory().retrieve(op1)*(Integer)MyDesktop.getMemory().retrieve(op2));
     }
     public static void div(String op1,String op2,String op3)
     {
-        MyDesktop.getMemory().store(op3,MyDesktop.getMemory().retrieve(op1)/MyDesktop.getMemory().retrieve(op2));
+        MyDesktop.getMemory().store(op3,(Integer)MyDesktop.getMemory().retrieve(op1)/(Integer)MyDesktop.getMemory().retrieve(op2));
     }
 }

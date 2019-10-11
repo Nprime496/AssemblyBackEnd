@@ -21,22 +21,22 @@ public class AssemblyOneAdress extends Assembly {
     }
     public static void load(String adress)
     {
-        MyDesktop.getAccmulator().setValue(MyDesktop.getMemory().retrieve(adress));
+        MyDesktop.getAccmulator().setValue((Integer)MyDesktop.getMemory().retrieve(adress));
     }
     public static void add(String adress)
     {
-        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()+MyDesktop.getMemory().retrieve(adress));
+        MyDesktop.getAccmulator().setValue(((Integer)MyDesktop.getAccmulator().getValue()+(Integer)MyDesktop.getMemory().retrieve(adress)));
     }
     public static void sub(String adress)
     {
-        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()-MyDesktop.getMemory().retrieve(adress));
+        MyDesktop.getAccmulator().setValue((Integer)MyDesktop.getAccmulator().getValue()-(Integer)MyDesktop.getMemory().retrieve(adress));
     }
     public static void mpy(String adress)
     {
-        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()*MyDesktop.getMemory().retrieve(adress)); 
+        MyDesktop.getAccmulator().setValue((Integer)MyDesktop.getAccmulator().getValue()*(Integer)MyDesktop.getMemory().retrieve(adress)); 
     }
     public static void div(String adress)
     {
-        MyDesktop.getAccmulator().setValue(MyDesktop.getAccmulator().getValue()/MyDesktop.getMemory().retrieve(adress));
+        MyDesktop.getAccmulator().setValue((Integer)MyDesktop.getAccmulator().getValue()/(Integer)MyDesktop.getMemory().retrieve(adress));
     }
 }
