@@ -5,8 +5,8 @@
  */
 package assembly.filemanager;
 
-import assembly.interpreter.Instruction;
-import assembly.interpreter.InstructionBranch;
+import assembly.instruction.Instruction;
+import assembly.instruction.InstructionBranch;
 import assembly.memory.MyDesktop;
 
 /**

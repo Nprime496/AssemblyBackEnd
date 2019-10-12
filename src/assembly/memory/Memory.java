@@ -6,7 +6,7 @@
 package assembly.memory;
 
 
-import assembly.interpreter.Instruction;
+import assembly.instruction.Instruction;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,11 +57,8 @@ public class Memory {//implements IMemory{
     {
         //si l'adresse recherchée n'existe pas, une valeur aléatoire sera renvoyée
         Object value;
-        try
-        {
-            value= this.memory.get(adress);
-        }
-        catch(NullPointerException e)
+        value= this.memory.get(adress);
+        if(value==null)
         {
             value=(int)(Math.random()*(Math.random()*100+Math.random()*50));
             this.memory.put(adress,value);

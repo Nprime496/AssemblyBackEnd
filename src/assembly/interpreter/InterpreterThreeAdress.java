@@ -5,11 +5,9 @@
  */
 package assembly.interpreter;
 
+import assembly.instruction.InstructionOperation;
+import assembly.instruction.Instruction;
 import assembly.filemanager.Parser;
-import static assembly.Command._ADD_;
-import static assembly.Command._DIV_;
-import static assembly.Command._MPY_;
-import static assembly.Command._SUB_;
 import assembly.AssemblyThreeAdress;
 import assembly.AssemblyTwoAdress;
 import assembly.memory.MyDesktop;
@@ -19,11 +17,9 @@ import assembly.memory.MyDesktop;
  * @author _Nprime496_
  */
 public class InterpreterThreeAdress extends Interpreter{
-    private static int NB_OPERANDS=3;
     public InterpreterThreeAdress()
     {
         this.AssemblyMode=new AssemblyTwoAdress();
-        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
     protected void interpretOperation(Instruction instruction)    
@@ -46,10 +42,6 @@ public class InterpreterThreeAdress extends Interpreter{
             else if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_MPY_))
             {
                 ((AssemblyThreeAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1],((InstructionOperation)instruction).getOperands()[2]);
-            }
-            else
-            {
-                System.out.println("operation non supportée");   
             }
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
         }

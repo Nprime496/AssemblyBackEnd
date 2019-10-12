@@ -25,23 +25,23 @@ public class AssemblyBackEnd {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // TODO code application logic here
         Memory computerMemory=MyDesktop.getMemory();
         InterpreterTwoAdress interpreter=new InterpreterTwoAdress();
-        computerMemory.store("A",6);
-        computerMemory.store("B",2);
-        computerMemory.store("X",5);
+        //computerMemory.store("A",6);
+        //computerMemory.store("B",2);
+        //computerMemory.store("X",5);
         Test();
         //interpreter.interpretTextInstructions("l2: div A,B \n mpy A,X");
         //System.out.println(MyDesktop.getMemory().retrieve("2"));
         print("A");
-    }
+    }*/
     public static void Test()
     {
-        FileManager manager=new FileManager(new Parser(3));
+        FileManager manager=new FileManager(new Parser());
         Interpreter interpreter=new InterpreterTwoAdress();
-        String instruction="l2: div A,B \n mpy A,X \n sub A,B \n stop ";
+        String instruction="sub A,B\n stop";//\n br L3 \n sub A,X \n L3 : mpy A,B \n stop ";
         manager.loadInMemory(instruction);
         interpreter.InterpretMemoryInstructions();
     }

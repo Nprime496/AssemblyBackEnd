@@ -5,8 +5,9 @@
  */
 package assembly.interpreter;
 
+import assembly.instruction.InstructionOperation;
+import assembly.instruction.Instruction;
 import assembly.filemanager.Parser;
-import static assembly.Command.*;
 import assembly.memory.Memory;
 import assembly.AssemblyZeroAdress;
 import assembly.memory.MyDesktop;
@@ -18,11 +19,9 @@ import java.util.Map;
  * @author _Nprime496_
  */
 public class InterpreterZeroAdress extends Interpreter {
-    private static int NB_OPERANDS=0;
     public InterpreterZeroAdress()
     {
         this.AssemblyMode=new AssemblyZeroAdress();
-        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
     protected void interpretOperation(Instruction instruction)    

@@ -5,9 +5,11 @@
  */
 package assembly.interpreter;
 
+import assembly.instruction.InstructionBranch;
+import assembly.instruction.InstructionDeclaration;
+import assembly.instruction.Instruction;
 import assembly.filemanager.Parser;
 import assembly.Assembly;
-import static assembly.Command.*;
 import assembly.memory.MyDesktop;
 import java.util.ArrayList;
 
@@ -15,12 +17,12 @@ import java.util.ArrayList;
  *
  * @author _Nprime496_
  */
-public abstract class Interpreter {
+public abstract class Interpreter implements Commands {
     
     //ce qui est important à retenir est que les instructions ayant une adresse seront stockées en deux temps d'abord dans leur ordre d'apparition
     //et ensuite leur numero de ligne sera conservé en mémoire dans une case ayant l'adresse mentionnée 
     //ainsi, un branchement vers cette case fournira le numéro de la ligne à executer et on se "branchera" à nouveau sur celle-ci
-    protected Parser CommandParser;
+    //protected Parser CommandParser;
     protected Assembly AssemblyMode;
     protected abstract void interpretOperation(Instruction instruction);
  
@@ -31,12 +33,12 @@ public abstract class Interpreter {
             this.interpretOperation(i);
         }
     }
-    public void interpretStringInstruction(String instruction)
+    /*public void interpretStringInstruction(String instruction)
     {
         //disponible uniquement pour les tests
         this.interpretOperation(this.CommandParser.SplitInstruction(instruction));
-    }
-    public void interpretTextInstructions(String text)
+    }*/
+    /*public void interpretTextInstructions(String text)
     {
         //utile uniquement pour les tests car viole le SINGLE RESPONSABILITY PRINCIPLE
         //on suppose qu'il y'a une instruction par ligne
@@ -46,11 +48,20 @@ public abstract class Interpreter {
             this.interpretStringInstruction(line);
         }
             
+    }*/
+    public void interpretDeclaration(Instruction instruction)
+    {
+        if(instruction instanceof InstructionDeclaration)
+        {
+            //MyDesktop.getMemory().store(instruction.getAdresse(),);
+            MyDesktop.getMemory().store(((InstructionDeclaration) instruction).getName(),Integer.parseInt(((InstructionDeclaration) instruction).getValue()));
+        }
     }
     public boolean interpretInstruction(Instruction instruction)
     {
         this.interpretOperation(instruction);
         boolean b=this.interpretBranch(instruction);//l'un au plus sera executé grace à la vérification des types dans les méthodes
+        this.interpretDeclaration(instruction);
         MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
         return b;
     }
@@ -80,8 +91,7 @@ public abstract class Interpreter {
                 //fin du programme
             }
             else
-            {
-                
+            {    
                 //on passe a l'instruction suivante
                 MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
             }

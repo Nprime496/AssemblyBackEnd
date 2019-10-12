@@ -19,6 +19,7 @@ public class AssemblyTwoAdress extends Assembly{
     }
     public static void sub(String op1,String op2)
     {
+        System.out.println((Integer)MyDesktop.getMemory().retrieve(op1)+"--"+op2+"---");
         MyDesktop.getMemory().store(op1,(Integer)MyDesktop.getMemory().retrieve(op1)-(Integer)MyDesktop.getMemory().retrieve(op2));
     }
     public static void mpy(String op1,String op2)

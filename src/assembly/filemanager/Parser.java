@@ -5,12 +5,14 @@
  */
 package assembly.filemanager;
 
-import assembly.interpreter.Instruction;
-import assembly.interpreter.Instruction;
-import assembly.interpreter.InstructionBranch;
-import assembly.interpreter.InstructionBranch;
-import assembly.interpreter.InstructionOperation;
-import assembly.interpreter.InstructionOperation;
+import assembly.interpreter.Commands;
+import assembly.instruction.Instruction;
+import assembly.instruction.Instruction;
+import assembly.instruction.InstructionBranch;
+import assembly.instruction.InstructionBranch;
+import assembly.instruction.InstructionDeclaration;
+import assembly.instruction.InstructionOperation;
+import assembly.instruction.InstructionOperation;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -20,12 +22,7 @@ import javafx.util.Pair;
  *
  * @author _Nprime496_
  */
-public class Parser {
-    private int nbParameters;//le nombre de paramètres de l'instruction qui est parsée
-    public Parser(int nb)
-    {
-        this.nbParameters=nb;
-    }
+public class Parser implements Commands{
     public Pair<String,String> SplitAdress(String instruction)
     {
         //separe l'adresse de l'instruction du contenu
@@ -34,6 +31,12 @@ public class Parser {
         if (pos>-1)
             return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1).trim());
         return new Pair(null,instruction.trim());
+    }
+
+    public Pair<String,String> SplitDeclarationAttributes(String instruction)
+    {
+        int pos=instruction.indexOf(" ");
+        return new Pair(instruction.substring(0,pos).trim(),instruction.substring(pos+1).trim());
     }
     public Pair<String,String> SplitOperation(String instruction)
     {
@@ -69,7 +72,7 @@ public class Parser {
     public Instruction SplitInstruction(String instruction)
     {
         //crée une instruction
-        Pair<String,String> tmpPair=this.SplitAdress(instruction);
+        /*Pair<String,String> tmpPair=this.SplitAdress(instruction);
         String adress=tmpPair.getKey();
 
         try
@@ -82,8 +85,11 @@ public class Parser {
         {
             try
             {
-                tmpPair=this.SplitBranch(tmpPair.getValue());
-                return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
+                String[] tmp=tmpPair.getValue().trim().split(" ");
+                tmpPair=this.SplitBranch(tmpPair.getValue());             
+                if(tmp.length==1)
+                    return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
+                return new InstructionDeclaration(adress,tmp[0],tmp[1]);
                 
             }
             catch(Exception neitherABranch)
@@ -91,9 +97,28 @@ public class Parser {
                 neitherABranch.printStackTrace();
             }
             notAnOperation.printStackTrace();
+        }*/
+        Pair<String,String> tmpPair=this.SplitAdress(instruction);
+        String adress=tmpPair.getKey();
+        if(tmpPair.getValue().trim().charAt(0)=='B' || tmpPair.getValue().trim().toUpperCase().equals("STOP"))
+        {
+            tmpPair=this.SplitBranch(tmpPair.getValue());
+            return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
         }
-
-        return null;
+        else if(tmpPair.getValue().trim().charAt(0)=='D')
+        {
+            System.out.println("branch!!");
+            tmpPair=this.SplitBranch(tmpPair.getValue());
+            return new InstructionDeclaration(adress,tmpPair.getKey(),tmpPair.getValue());
+        }
+        else
+        {
+            System.out.println("operation!!!");
+            tmpPair=this.SplitOperation(tmpPair.getValue());
+            String[] tmp=this.SplitOperands(tmpPair.getValue());
+            return new InstructionOperation(adress,tmpPair.getKey(),tmp);
+        }
+        //return null;
     }
     
 }

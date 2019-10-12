@@ -18,7 +18,9 @@ public class Flag {
     }
 
     public void setValue(int value) {
-        this.value = Math.abs(value)/value;
+        if(value!=0)
+            this.value = Math.abs(value)/value;
+        this.value=0;
     }
     
 }

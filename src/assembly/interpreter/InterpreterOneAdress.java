@@ -5,11 +5,9 @@
  */
 package assembly.interpreter;
 
+import assembly.instruction.InstructionOperation;
+import assembly.instruction.Instruction;
 import assembly.filemanager.Parser;
-import static assembly.Command._ADD_;
-import static assembly.Command._DIV_;
-import static assembly.Command._MPY_;
-import static assembly.Command._SUB_;
 import assembly.AssemblyOneAdress;
 import assembly.AssemblyThreeAdress;
 import assembly.AssemblyTwoAdress;
@@ -19,11 +17,9 @@ import assembly.AssemblyTwoAdress;
  * @author _Nprime496_
  */
 public class InterpreterOneAdress extends Interpreter{
-    private static int NB_OPERANDS=2;
     public InterpreterOneAdress()
     {
         this.AssemblyMode=new AssemblyOneAdress();
-        this.CommandParser=new Parser(NB_OPERANDS);
     }
     @Override
     protected void interpretOperation(Instruction instruction)    

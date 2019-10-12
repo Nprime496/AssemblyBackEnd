@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assembly.interpreter;
+package assembly.instruction;
 
+import assembly.instruction.Instruction;
 import java.util.Arrays;
 import java.util.Objects;
 
