@@ -5,13 +5,34 @@
  */
 package assemblybackend;
 
+import assembly.filemanager.FileManager;
+import assembly.filemanager.Parser;
+import assembly.instruction.Instruction;
+import assembly.interpreter.Interpreter;
+import assembly.interpreter.InterpreterOneAdress;
+import assembly.interpreter.InterpreterThreeAdress;
+import assembly.interpreter.InterpreterTwoAdress;
+import assembly.interpreter.InterpreterZeroAdress;
+import assembly.memory.MyDesktop;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 
 /**
@@ -20,16 +41,73 @@ import javafx.scene.control.TextArea;
  */
 public class Controller implements Initializable {
     @FXML
+    private MenuBar menuBar;
+    @FXML
+    private ChoiceBox<Interpreter> assemblychooser;
+    @FXML
     private TextArea text;
-    private ReadAndInterpret interpreter=new ReadAndInterpret();
+    @FXML
+    private TextArea console;
+    //private final ReadAndInterpret interpreter=new ReadAndInterpret();
+    private FileManager fileReader=new FileManager(new Parser());
+    private Interpreter interpreter=new InterpreterTwoAdress();
+    public void InterpretMemoryInstructions()
+    {
+        //int i=0;
+        MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(0));
+        boolean allIsFine=true;
+        console.setText("Output:\n");//vider la console
+        while(allIsFine)
+        {
+            //System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
+            allIsFine=interpreter.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
+            System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
+            Object val=MyDesktop.getBuffer();
+            if(val!=null)
+                console.setText(console.getText()+val+"\n");
+            //System.out.println(MyDesktop.getMemory().retrieve("A")+"=-="+MyDesktop.getMemory().retrieve("B"));
+            //System.out.println(MyDesktop.getBuffer());
+            MyDesktop.setBuffer(null);
+            //MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
+        }
+    }
+
     @FXML
     private void run(ActionEvent event) {
-        interpreter.run(text.getText());
+        MyDesktop.getMemory().clear();
+        this.fileReader.loadInMemory(text.getText());
+        this.InterpretMemoryInstructions();
+        //print("A");
+    }
+    @FXML
+    private void openFile(ActionEvent event) {
+        FileChooser f=new FileChooser();
+        
+        f.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text Files", "*.txt")
+                ,new FileChooser.ExtensionFilter("Pseudo-assembly", "*.pasm")
+        );
+        File selected=f.showOpenDialog((Stage)(menuBar.getScene().getWindow()));
+        //print("A");
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Interpreter[] lst={new InterpreterZeroAdress(),new InterpreterTwoAdress(),new InterpreterThreeAdress(),new InterpreterOneAdress()};
+        Interpreter[] lst={new InterpreterTwoAdress()};
+        assemblychooser.setItems(FXCollections.observableArrayList(lst));
         // TODO
     }    
-    
+    @FXML
+    private void about(ActionEvent event ) throws IOException
+    {
+        Stage stage=new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("about.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.setTitle("PSEUDO ASM IDE v.0.1");
+        stage.show();
+    }
 }

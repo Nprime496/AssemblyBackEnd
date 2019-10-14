@@ -20,7 +20,8 @@ public class Flag {
     public void setValue(int value) {
         if(value!=0)
             this.value = Math.abs(value)/value;
-        this.value=0;
+        else
+            this.value=0;
     }
     
 }

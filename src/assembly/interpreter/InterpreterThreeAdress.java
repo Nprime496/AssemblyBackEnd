@@ -46,5 +46,9 @@ public class InterpreterThreeAdress extends Interpreter{
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
         }
     }
-
+    @Override
+    public String toString()
+    {
+        return "Three adresses Assembly";
+    }
 }

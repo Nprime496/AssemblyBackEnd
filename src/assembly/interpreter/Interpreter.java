@@ -18,12 +18,21 @@ import java.util.ArrayList;
  * @author _Nprime496_
  */
 public abstract class Interpreter implements Commands {
-    
+    private static String buffer;
     //ce qui est important à retenir est que les instructions ayant une adresse seront stockées en deux temps d'abord dans leur ordre d'apparition
     //et ensuite leur numero de ligne sera conservé en mémoire dans une case ayant l'adresse mentionnée 
     //ainsi, un branchement vers cette case fournira le numéro de la ligne à executer et on se "branchera" à nouveau sur celle-ci
     //protected Parser CommandParser;
     protected Assembly AssemblyMode;
+
+    public String getBuffer() {
+        return buffer;
+    }
+
+    public void setBuffer(String buffer) {
+        this.buffer = buffer==null?"":buffer;
+    }
+    
     protected abstract void interpretOperation(Instruction instruction);
  
     public void interpretInstructions(ArrayList<Instruction> instruction)
@@ -54,7 +63,9 @@ public abstract class Interpreter implements Commands {
         if(instruction instanceof InstructionDeclaration)
         {
             //MyDesktop.getMemory().store(instruction.getAdresse(),);
-            MyDesktop.getMemory().store(((InstructionDeclaration) instruction).getName(),Integer.parseInt(((InstructionDeclaration) instruction).getValue()));
+            //System.out.println("une putain de declaration!!");
+            //System.out.println("adresse:"+((InstructionDeclaration) instruction).getName()+"-valeur:"+Integer.parseInt(((InstructionDeclaration) instruction).getValue()));
+            MyDesktop.getMemory().store(((InstructionDeclaration) instruction).getName().trim(),Integer.parseInt(((InstructionDeclaration) instruction).getValue()));
         }
     }
     public boolean interpretInstruction(Instruction instruction)
@@ -69,21 +80,31 @@ public abstract class Interpreter implements Commands {
     {
         if(instruction instanceof InstructionBranch)
         {
+            System.out.println("flag: "+MyDesktop.getFlag().getValue());
             if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BR_))
             {
-                MyDesktop.getCounter().setAdressNextInstruction((String)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()));
+                //System.out.println(Integer.toString((int)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())));
+                MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((int)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BGT_) && MyDesktop.getFlag().getValue()==1 )
             {
-                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()))));
+                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BLT_) && MyDesktop.getFlag().getValue()==-1 )
             {
-                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()))));
+                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BEZ_) && MyDesktop.getFlag().getValue()==0 )
             {
-                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()))));
+                MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
+            }
+            else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_PRINT_))
+            {
+                Object value=((InstructionBranch) instruction).getDestination();
+                //System.out.println("valeur adresse: "+value);
+                MyDesktop.print((String)value);
+                //System.out.println(Integer.toString((Integer)MyDesktop.getMemory().retrieve((String)value)));
+                //throw new PrintMessageException(Integer.toString((Integer)MyDesktop.getMemory().retrieve((String)value)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_STOP_))
             {
@@ -93,23 +114,25 @@ public abstract class Interpreter implements Commands {
             else
             {    
                 //on passe a l'instruction suivante
+                //System.out.println(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
                 MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
             }
         }
         return true;
     }
     
-    public void InterpretMemoryInstructions()
+    /*public void InterpretMemoryInstructions()
     {
-        int i=0;
-        MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(i));
+        //int i=0;
+        MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(0));/
         boolean allIsFine=true;
         while(allIsFine)
         {
-            allIsFine=this.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(i)));
-            i++;
-            MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(i));
+            //System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
+            allIsFine=this.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
+            
+            //MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
         }
-    }
+    }*/
     
 }

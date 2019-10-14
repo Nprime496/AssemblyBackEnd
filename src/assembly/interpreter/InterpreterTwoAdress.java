@@ -26,7 +26,7 @@ public class InterpreterTwoAdress extends Interpreter{
         if(instruction instanceof InstructionOperation)
         {
             instruction=((InstructionOperation)instruction);
-            System.out.println(instruction);
+            //System.out.println(instruction);
             if(((InstructionOperation)instruction).getOperation().toUpperCase().equals(_ADD_))
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).add(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
@@ -43,8 +43,14 @@ public class InterpreterTwoAdress extends Interpreter{
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
+            System.out.println("flagged");
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
+            System.out.println("flagged value: "+MyDesktop.getFlag().getValue());
         }
     }
-
+    @Override
+    public String toString()
+    {
+        return "Two Adresses Assembly";
+    }
 }

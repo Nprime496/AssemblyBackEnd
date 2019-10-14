@@ -5,6 +5,7 @@
  */
 package assemblybackend;
 
+
 import assembly.filemanager.FileManager;
 import assembly.filemanager.Parser;
 import assembly.interpreter.Interpreter;
@@ -23,10 +24,10 @@ public class ReadAndInterpret {
         this.interpreter = new InterpreterTwoAdress();
     }
     
-    public void run(String instructions)
+    /*public void run(String instructions)
     {
         //String instruction=" sub A,B \n stop ";
         this.fileReader.loadInMemory(instructions);
         this.interpreter.InterpretMemoryInstructions();
-    }
+    }&*/
 }

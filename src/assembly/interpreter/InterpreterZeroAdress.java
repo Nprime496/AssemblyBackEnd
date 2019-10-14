@@ -48,6 +48,9 @@ public class InterpreterZeroAdress extends Interpreter {
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getStack().getHead());
         }
     }
-
-
+    @Override
+    public String toString()
+    {
+        return "Zero adress Assembly";
+    }
 }

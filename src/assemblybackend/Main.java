@@ -30,6 +30,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setTitle("PSEUDO ASM IDE v.0.1");
         stage.show();
     }
 

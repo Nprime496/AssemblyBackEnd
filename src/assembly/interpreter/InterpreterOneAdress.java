@@ -49,6 +49,11 @@ public class InterpreterOneAdress extends Interpreter{
             }
         }
     }
+    @Override
+    public String toString()
+    {
+        return "One adress Assembly";
+    }
 
 
 }

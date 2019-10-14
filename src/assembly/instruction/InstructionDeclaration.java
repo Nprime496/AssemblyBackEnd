@@ -40,7 +40,8 @@ public class InstructionDeclaration extends Instruction{
         this.value = value;
     }
     
-    public InstructionDeclaration(String operation, String name, String value) {
+    public InstructionDeclaration(String adress,String operation, String name, String value) {
+        super(adress);
         this.operation = operation;
         this.name = name;
         this.value = value;

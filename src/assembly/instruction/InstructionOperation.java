@@ -18,9 +18,9 @@ public class InstructionOperation extends Instruction{
     private String[] operands;
 
     public InstructionOperation(String adresse,String operation, String[] operands) {
+        super(adresse);
         this.operation = operation;
         this.operands = operands;
-        this.adresse=adresse;
     }
     public String getOperation() {
         return operation;

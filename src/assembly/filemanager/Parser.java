@@ -100,16 +100,18 @@ public class Parser implements Commands{
         }*/
         Pair<String,String> tmpPair=this.SplitAdress(instruction);
         String adress=tmpPair.getKey();
-        if(tmpPair.getValue().trim().charAt(0)=='B' || tmpPair.getValue().trim().toUpperCase().equals("STOP"))
-        {
-            tmpPair=this.SplitBranch(tmpPair.getValue());
-            return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
-        }
-        else if(tmpPair.getValue().trim().charAt(0)=='D')
+        if(tmpPair.getValue().trim().charAt(0)=='B' || tmpPair.getValue().trim().toUpperCase().equals("STOP") || tmpPair.getValue().trim().toUpperCase().contains("PRINT"))
         {
             System.out.println("branch!!");
             tmpPair=this.SplitBranch(tmpPair.getValue());
-            return new InstructionDeclaration(adress,tmpPair.getKey(),tmpPair.getValue());
+            return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
+        }
+        else if(tmpPair.getValue().trim().startsWith("SET"))
+        {
+            System.out.println("declaration!!");
+            //int pos=tmpPair.getValue().indexOf(" ");
+            String[] tmp=tmpPair.getValue().split(" ");
+            return new InstructionDeclaration(adress,tmp[0],tmp[1],tmp[2]);
         }
         else
         {

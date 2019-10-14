@@ -11,6 +11,11 @@ package assembly.instruction;
  */
 public abstract class Instruction {
     protected String adresse;
+
+    public Instruction(String adresse) {
+        this.adresse = adresse;
+    }
+    
     public abstract void execute();
 
     public String getAdresse() {

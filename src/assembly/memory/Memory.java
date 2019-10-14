@@ -65,5 +65,9 @@ public class Memory {//implements IMemory{
         }
         return value;
     }
+    public void clear()
+    {
+        this.memory=new HashMap<String,Object>();
+    }
 
 }

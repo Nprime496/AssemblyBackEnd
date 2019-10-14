@@ -17,9 +17,9 @@ public class InstructionBranch extends Instruction{
     private String destination;
 
     public InstructionBranch(String adresse,String branchement, String destination) {
+        super(adresse);
         this.branchement = branchement;
         this.destination = destination;
-        this.adresse=adresse;
     }
     
     

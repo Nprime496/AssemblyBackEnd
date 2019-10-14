@@ -43,6 +43,6 @@ public class AssemblyBackEnd {
         Interpreter interpreter=new InterpreterTwoAdress();
         String instruction="sub A,B\n stop";//\n br L3 \n sub A,X \n L3 : mpy A,B \n stop ";
         manager.loadInMemory(instruction);
-        interpreter.InterpretMemoryInstructions();
+        //interpreter.InterpretMemoryInstructions();
     }
 }

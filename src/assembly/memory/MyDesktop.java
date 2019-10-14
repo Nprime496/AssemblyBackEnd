@@ -5,6 +5,7 @@
  */
 package assembly.memory;
 
+
 import assembly.memory.Memory;
 
 /**
@@ -12,11 +13,20 @@ import assembly.memory.Memory;
  * @author _Nprime496_
  */
 public class MyDesktop {
+    private static Object buffer;
     private static Flag flag;
     private static ProgramCounter counter;
     private static Stack stack;
     private static Memory memory;
     private static Accumulator accumulator;
+    public static Object getBuffer()
+    {
+        return buffer;
+    }
+    public static void setBuffer(Object msg)
+    {
+        buffer=msg;
+    }
     public static Accumulator getAccmulator()
     {
         if(accumulator==null)
@@ -46,7 +56,12 @@ public class MyDesktop {
         System.out.println(message);
     }
     public static void print(String adress) {
-        System.out.println(MyDesktop.getMemory().retrieve(adress));
+        System.out.println("affichage: "+adress+" valeur:"+MyDesktop.getMemory().retrieve(adress));
+        Object value=MyDesktop.getMemory().retrieve(adress);
+        if(value instanceof Integer)
+            value=Integer.toString((Integer)value);
+        MyDesktop.setBuffer(value);
+        
     }
     public static ProgramCounter getCounter()
     {

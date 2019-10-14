@@ -15,20 +15,19 @@ public class AssemblyTwoAdress extends Assembly{
 
     public static void add(String op1,String op2)
     {
-        MyDesktop.getMemory().store(op1,(Integer)MyDesktop.getMemory().retrieve(op1)+(Integer)MyDesktop.getMemory().retrieve(op2));
+        AssemblyThreeAdress.add(op1,op2, op1);
     }
     public static void sub(String op1,String op2)
     {
-        System.out.println((Integer)MyDesktop.getMemory().retrieve(op1)+"--"+op2+"---");
-        MyDesktop.getMemory().store(op1,(Integer)MyDesktop.getMemory().retrieve(op1)-(Integer)MyDesktop.getMemory().retrieve(op2));
+        AssemblyThreeAdress.sub(op1,op2, op1);
     }
     public static void mpy(String op1,String op2)
     {
-        MyDesktop.getMemory().store(op1,(Integer)MyDesktop.getMemory().retrieve(op1)*(Integer)MyDesktop.getMemory().retrieve(op2));
+        AssemblyThreeAdress.mpy(op1,op2, op1);
     }
     public static void div(String op1,String op2)
     {
-        MyDesktop.getMemory().store(op1,(Integer)MyDesktop.getMemory().retrieve(op1)/(Integer)MyDesktop.getMemory().retrieve(op2));
+        AssemblyThreeAdress.div(op1,op2, op1);
     }
     
 }

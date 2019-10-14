@@ -23,4 +23,5 @@ public interface Commands {
     public String _LOAD_="LOAD";
     public String _STOP_="STOP";
     public String _SET_="SET";
+    public String _PRINT_="PRINT";
 }
