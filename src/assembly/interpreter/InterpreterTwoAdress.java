@@ -43,9 +43,9 @@ public class InterpreterTwoAdress extends Interpreter{
             {
                 ((AssemblyTwoAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);
             }
-            System.out.println("flagged");
+            //System.out.println("flagged");
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
-            System.out.println("flagged value: "+MyDesktop.getFlag().getValue());
+            //System.out.println("flagged value: "+MyDesktop.getFlag().getValue());
         }
     }
     @Override

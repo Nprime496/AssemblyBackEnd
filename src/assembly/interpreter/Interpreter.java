@@ -88,14 +88,20 @@ public abstract class Interpreter implements Commands {
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BGT_) && MyDesktop.getFlag().getValue()==1 )
             {
+                System.out.println("BGT");
+                //System.
+                System.out.println("branchement : "+((InstructionBranch) instruction).getDestination()+", line : "+(Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()));
                 MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BLT_) && MyDesktop.getFlag().getValue()==-1 )
             {
+                System.out.println(((InstructionBranch) instruction).getDestination());
                 MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BEZ_) && MyDesktop.getFlag().getValue()==0 )
             {
+                System.out.println("BEZ");
+                System.out.println("branchement : "+((InstructionBranch) instruction).getDestination()+", line : "+(Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()));
                 MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
             }
             else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_PRINT_))
@@ -115,7 +121,7 @@ public abstract class Interpreter implements Commands {
             {    
                 //on passe a l'instruction suivante
                 //System.out.println(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
-                MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
+                MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
             }
         }
         return true;

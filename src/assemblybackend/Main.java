@@ -31,6 +31,7 @@ public class Main extends Application {
         
         stage.setScene(scene);
         stage.setTitle("PSEUDO ASM IDE v.0.1");
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -54,14 +54,26 @@ public class Controller implements Initializable {
     public void InterpretMemoryInstructions()
     {
         //int i=0;
+        //MyDesktop.getMemory().clear();
         MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(0));
         boolean allIsFine=true;
         console.setText("Output:\n");//vider la console
+        System.out.println("Running!!");
         while(allIsFine)
         {
+            
             //System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
-            allIsFine=interpreter.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
-            System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
+            try
+            {
+                allIsFine=interpreter.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
+            }
+            catch(Exception e)
+            {
+                MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
+                allIsFine=false;
+            }
+            
+            System.out.println("LINE TO EXECUTE : "+Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
             Object val=MyDesktop.getBuffer();
             if(val!=null)
                 console.setText(console.getText()+val+"\n");
@@ -102,12 +114,13 @@ public class Controller implements Initializable {
     private void about(ActionEvent event ) throws IOException
     {
         Stage stage=new Stage();
+        stage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("about.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("PSEUDO ASM IDE v.0.1");
+        stage.setTitle("About");
         stage.show();
     }
 }
