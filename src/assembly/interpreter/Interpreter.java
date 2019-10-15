@@ -8,7 +8,6 @@ package assembly.interpreter;
 import assembly.instruction.InstructionBranch;
 import assembly.instruction.InstructionDeclaration;
 import assembly.instruction.Instruction;
-import assembly.filemanager.Parser;
 import assembly.Assembly;
 import assembly.memory.MyDesktop;
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public abstract class Interpreter implements Commands {
     //ce qui est important à retenir est que les instructions ayant une adresse seront stockées en deux temps d'abord dans leur ordre d'apparition
     //et ensuite leur numero de ligne sera conservé en mémoire dans une case ayant l'adresse mentionnée 
     //ainsi, un branchement vers cette case fournira le numéro de la ligne à executer et on se "branchera" à nouveau sur celle-ci
-    //protected Parser CommandParser;
     protected Assembly AssemblyMode;
 
     public String getBuffer() {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assemblybackend;
+package views;
 
 import assembly.filemanager.FileManager;
 import assembly.filemanager.Parser;

@@ -1,2 +1,0 @@
-AssemblyBackEnd.Main
-javafxapplication9.JavaFXApplication9

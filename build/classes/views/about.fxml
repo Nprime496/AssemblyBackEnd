@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea editable="false" layoutX="38.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" text="l'IDE POUR LE PSEUDO-ASSEMBLEUR.&#10;ceci est une ebauche de la version finale, seul le pseudo-assembleur à deux adresses &#10;est implémenté.&#10;Il est donc question de faire quelques tests.&#10;&#10;bon à savoir: &#10;la commande SET permet de créer des constantes&#10; ex:&#10;SET ONE 1&#10;SET FOUR 4&#10;pour le reste ce sont les commandes habituelles.&#10;&#10;NB: ceci etant une version d'essai, il est possible de noter une forte sensibilité à la&#10;syntaxe.Par exemple, veuillez à utiliser STOP pour marquer la fin du programme.&#10;un max de feedback est attendu.&#10;&#10;Merci.&#10;&#10;&#10;&#10;Réalisé par:&#10;N'nane dieudonné junior&#10;&#10;avec la participation de:&#10;Mounah honoré césaire" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Arial Narrow Bold" size="15.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

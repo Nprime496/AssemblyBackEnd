@@ -6,5 +6,5 @@ Codebase: *
 Application-Library-Allowable-Codebase: *
 Caller-Allowable-Codebase: *
 Permissions: sandbox
-Application-Name: AssemblyBackEnd
+Application-Name: AssemblyProject
 
