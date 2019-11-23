@@ -5,17 +5,8 @@
  */
 package assembly.filemanager;
 
-import assembly.interpreter.Commands;
-import assembly.instruction.Instruction;
-import assembly.instruction.Instruction;
-import assembly.instruction.InstructionBranch;
-import assembly.instruction.InstructionBranch;
-import assembly.instruction.InstructionDeclaration;
-import assembly.instruction.InstructionOperation;
-import assembly.instruction.InstructionOperation;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import assembly.instruction.*;
+import java.lang.reflect.Field;
 import javafx.util.Pair;
 
 /**
@@ -72,34 +63,34 @@ public class Parser implements Commands{
     public Instruction SplitInstruction(String instruction)
     {
         //crée une instruction
-        /*Pair<String,String> tmpPair=this.SplitAdress(instruction);
-        String adress=tmpPair.getKey();
+        System.out.println(Commands.class.getFields());
+        //faire une boucle pour verifier si le type des instructions
 
-        try
-        {
-            tmpPair=this.SplitOperation(tmpPair.getValue());
-            String[] operands=this.SplitOperands(tmpPair.getValue());
-            return new InstructionOperation(adress,tmpPair.getKey(),operands);
-        }
-        catch(Exception notAnOperation)
-        {
-            try
-            {
-                String[] tmp=tmpPair.getValue().trim().split(" ");
-                tmpPair=this.SplitBranch(tmpPair.getValue());             
-                if(tmp.length==1)
-                    return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
-                return new InstructionDeclaration(adress,tmp[0],tmp[1]);
-                
-            }
-            catch(Exception neitherABranch)
-            {
-                neitherABranch.printStackTrace();
-            }
-            notAnOperation.printStackTrace();
-        }*/
         Pair<String,String> tmpPair=this.SplitAdress(instruction);
         String adress=tmpPair.getKey();
+        System.err.println(instruction);
+        for (Field f : CommandsBranch.class.getFields())
+        {
+            if(f.equals(tmpPair.getValue().toUpperCase()))
+            {
+                System.err.println("branch!!");
+                tmpPair=this.SplitBranch(tmpPair.getValue());
+                return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
+            }
+        }
+        for (Field f : CommandsOperation.class.getFields())
+        {
+            if(f.equals(tmpPair.getValue().toUpperCase()))
+            {
+                System.err.println("operation!!");
+                System.out.println("operation!!!");
+                tmpPair=this.SplitOperation(tmpPair.getValue());
+                String[] tmp=this.SplitOperands(tmpPair.getValue());
+                return new InstructionOperation(adress,tmpPair.getKey(),tmp);
+            }
+        }
+        return null;
+        /*
         if(tmpPair.getValue().trim().charAt(0)=='B' || tmpPair.getValue().trim().toUpperCase().equals("STOP") || tmpPair.getValue().trim().toUpperCase().contains("PRINT"))
         {
             System.out.println("branch!!");
@@ -119,7 +110,7 @@ public class Parser implements Commands{
             tmpPair=this.SplitOperation(tmpPair.getValue());
             String[] tmp=this.SplitOperands(tmpPair.getValue());
             return new InstructionOperation(adress,tmpPair.getKey(),tmp);
-        }
+        }*/
         //return null;
     }
     

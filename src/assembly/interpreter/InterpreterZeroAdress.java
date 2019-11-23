@@ -7,12 +7,8 @@ package assembly.interpreter;
 
 import assembly.instruction.InstructionOperation;
 import assembly.instruction.Instruction;
-import assembly.filemanager.Parser;
-import assembly.memory.Memory;
 import assembly.AssemblyZeroAdress;
 import assembly.memory.MyDesktop;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -23,7 +19,7 @@ public class InterpreterZeroAdress extends Interpreter {
     {
         this.AssemblyMode=new AssemblyZeroAdress();
     }
-    @Override
+    /*@Override
     protected void interpretOperation(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
@@ -47,10 +43,21 @@ public class InterpreterZeroAdress extends Interpreter {
             }
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getStack().getHead());
         }
-    }
+    }*/
     @Override
     public String toString()
     {
         return "Zero adress Assembly";
     }
+
+    @Override
+    public Boolean createFunctions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected Boolean interpretOperation(Instruction instruction) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

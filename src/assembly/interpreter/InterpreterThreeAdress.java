@@ -7,7 +7,6 @@ package assembly.interpreter;
 
 import assembly.instruction.InstructionOperation;
 import assembly.instruction.Instruction;
-import assembly.filemanager.Parser;
 import assembly.AssemblyThreeAdress;
 import assembly.AssemblyTwoAdress;
 import assembly.memory.MyDesktop;
@@ -16,12 +15,16 @@ import assembly.memory.MyDesktop;
  *
  * @author _Nprime496_
  */
+
+
 public class InterpreterThreeAdress extends Interpreter{
     public InterpreterThreeAdress()
     {
         this.AssemblyMode=new AssemblyTwoAdress();
     }
-    @Override
+
+
+    /*@Override
     protected void interpretOperation(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
@@ -45,10 +48,22 @@ public class InterpreterThreeAdress extends Interpreter{
             }
             MyDesktop.getFlag().setValue((Integer)MyDesktop.getMemory().retrieve(((InstructionOperation)instruction).getOperands()[0]));
         }
-    }
+    }*/
     @Override
     public String toString()
     {
         return "Three adresses Assembly";
     }
+
+    @Override
+    public Boolean createFunctions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected Boolean interpretOperation(Instruction instruction) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }

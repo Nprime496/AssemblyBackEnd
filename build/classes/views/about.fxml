@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="338.0" prefWidth="411.0" stylesheets="@config.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea editable="false" layoutX="38.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" text="l'IDE POUR LE PSEUDO-ASSEMBLEUR.&#10;ceci est une ebauche de la version finale, seul le pseudo-assembleur à deux adresses &#10;est implémenté.&#10;Il est donc question de faire quelques tests.&#10;&#10;bon à savoir: &#10;la commande SET permet de créer des constantes&#10; ex:&#10;SET ONE 1&#10;SET FOUR 4&#10;pour le reste ce sont les commandes habituelles.&#10;&#10;NB: ceci etant une version d'essai, il est possible de noter une forte sensibilité à la&#10;syntaxe.Par exemple, veuillez à utiliser STOP pour marquer la fin du programme.&#10;un max de feedback est attendu.&#10;&#10;Merci.&#10;&#10;&#10;&#10;Réalisé par:&#10;N'nane dieudonné junior&#10;&#10;avec la participation de:&#10;Mounah honoré césaire" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <font>
-            <Font name="Arial Narrow Bold" size="15.0" />
-         </font>
-      </TextArea>
+      <VBox layoutX="64.0" layoutY="37.0" prefHeight="264.0" prefWidth="293.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="264.0" prefWidth="229.0">
+               <children>
+                  <ImageView fitHeight="113.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="17.0" prefWidth="227.0" text="N'NANE DIEUDONNÉ JUNIOR" />
+                  <Label text="3GI" />
+                  <Label text="October 2019" />
+                  <Hyperlink text="feedback496@gmail.com" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

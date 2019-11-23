@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Menu?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assemblybackend.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="836.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Controller">
    <children>
       <MenuBar fx:id="menuBar" layoutX="94.0" layoutY="20.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -36,6 +37,7 @@
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                  <MenuItem mnemonicParsing="false" onAction="#tutorial" text="Tutorial" />
             </items>
           </Menu>
         </menus>
@@ -43,10 +45,18 @@
       <ToolBar layoutY="25.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <items>
             <ChoiceBox fx:id="assemblychooser" disable="true" prefWidth="150.0" />
-          <Button mnemonicParsing="false" onAction="#run" prefHeight="25.0" prefWidth="63.0" text="run" textFill="#31b231">
+          <Button mnemonicParsing="false" onAction="#run" prefHeight="38.0" prefWidth="37.0" textFill="#31b231">
                <font>
                   <Font size="18.0" />
                </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#2ed044" glyphName="PLAY" size="20.0" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="43.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#e80e0e" glyphName="SQUARE" size="20.0" />
+               </graphic>
             </Button>
         </items>
       </ToolBar>

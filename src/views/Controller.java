@@ -9,30 +9,26 @@ import assembly.filemanager.FileManager;
 import assembly.filemanager.Parser;
 import assembly.instruction.Instruction;
 import assembly.interpreter.Interpreter;
-import assembly.interpreter.InterpreterOneAdress;
-import assembly.interpreter.InterpreterThreeAdress;
 import assembly.interpreter.InterpreterTwoAdress;
-import assembly.interpreter.InterpreterZeroAdress;
 import assembly.memory.MyDesktop;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+//import com.gluonhq.charm.glisten.control.Icon; 
 
 
 /**
@@ -51,6 +47,7 @@ public class Controller implements Initializable {
     //private final ReadAndInterpret interpreter=new ReadAndInterpret();
     private FileManager fileReader=new FileManager(new Parser());
     private Interpreter interpreter=new InterpreterTwoAdress();
+    
     public void InterpretMemoryInstructions()
     {
         //int i=0;
@@ -61,8 +58,6 @@ public class Controller implements Initializable {
         System.out.println("Running!!");
         while(allIsFine)
         {
-            
-            //System.out.println(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
             try
             {
                 allIsFine=interpreter.interpretInstruction((Instruction)MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction()))));
@@ -72,15 +67,11 @@ public class Controller implements Initializable {
                 MyDesktop.getMemory().retrieve(Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
                 allIsFine=false;
             }
-            
             System.out.println("LINE TO EXECUTE : "+Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
             Object val=MyDesktop.getBuffer();
             if(val!=null)
-                console.setText(console.getText()+val+"\n");
-            //System.out.println(MyDesktop.getMemory().retrieve("A")+"=-="+MyDesktop.getMemory().retrieve("B"));
-            //System.out.println(MyDesktop.getBuffer());
-            MyDesktop.setBuffer(null);
-            //MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())+1)));
+                console.setText(console.getText()+(val));
+            MyDesktop.setBuffer(null);   
         }
     }
 
@@ -110,6 +101,19 @@ public class Controller implements Initializable {
         assemblychooser.setItems(FXCollections.observableArrayList(lst));
         // TODO
     }    
+    @FXML
+    private void tutorial(ActionEvent event ) throws IOException
+    {
+        Stage stage=new Stage();
+        stage.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("tutorial.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.setTitle("About");
+        stage.show();
+    }
     @FXML
     private void about(ActionEvent event ) throws IOException
     {

@@ -1,0 +1,9 @@
+.label
+{
+	-fx-font-size:140%;
+}
+.hyperlink
+{
+	-fx-text-fill:green;
+	-fx-font-size:140%;
+}

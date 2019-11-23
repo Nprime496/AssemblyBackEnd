@@ -7,21 +7,25 @@ package assembly.interpreter;
 
 import assembly.instruction.InstructionOperation;
 import assembly.instruction.Instruction;
-import assembly.filemanager.Parser;
 import assembly.AssemblyOneAdress;
-import assembly.AssemblyThreeAdress;
-import assembly.AssemblyTwoAdress;
+import assembly.instruction.Commands;
 
 /**
  *
  * @author _Nprime496_
  */
-public class InterpreterOneAdress extends Interpreter{
+
+interface CommandsOneAdress extends Commands
+{
+        public String _PUSH_="PUSH";
+        public String _POP_="POP";
+}
+public class InterpreterOneAdress extends Interpreter implements CommandsOneAdress{
     public InterpreterOneAdress()
     {
         this.AssemblyMode=new AssemblyOneAdress();
     }
-    @Override
+    /*@Override
     protected void interpretOperation(Instruction instruction)    
     {
         if(instruction instanceof InstructionOperation)
@@ -48,11 +52,26 @@ public class InterpreterOneAdress extends Interpreter{
                 System.out.println("operation non supportée");   
             }
         }
-    }
+    }*/
     @Override
     public String toString()
     {
         return "One adress Assembly";
+    }
+
+    /*@Override
+    public Boolean computeInstruction(Instruction instruction) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
+    @Override
+    public Boolean createFunctions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected Boolean interpretOperation(Instruction instruction) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
