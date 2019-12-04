@@ -5,22 +5,21 @@
  */
 package assembly.interpreter;
 
-import assembly.instruction.InstructionOperation;
 import assembly.instruction.Instruction;
 import assembly.AssemblyOneAdress;
-import assembly.instruction.Commands;
+
 
 /**
  *
  * @author _Nprime496_
  */
-
-interface CommandsOneAdress extends Commands
+enum CommandsOneAdress
 {
-        public String _PUSH_="PUSH";
-        public String _POP_="POP";
+        PUSH,
+        POP;
+
 }
-public class InterpreterOneAdress extends Interpreter implements CommandsOneAdress{
+public class InterpreterOneAdress extends Interpreter{
     public InterpreterOneAdress()
     {
         this.AssemblyMode=new AssemblyOneAdress();

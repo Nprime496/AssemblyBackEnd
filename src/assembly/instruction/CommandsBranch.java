@@ -9,12 +9,13 @@ package assembly.instruction;
  *
  * @author _Nprime496_
  */
-public interface CommandsBranch
+public enum CommandsBranch 
 {
     //commandes de branchement
-    final String _BR_="BR";
-    final String _BGT_="BGT";
-    final String _BLT_="BLT";
-    final String _BEZ_="BEZ";
-    final String _STOP_="STOP";
+    BR,
+    BGT,
+    BLT,
+    BEZ,
+    PRINT,
+    STOP;    
 }

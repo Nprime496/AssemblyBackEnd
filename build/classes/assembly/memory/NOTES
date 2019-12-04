@@ -1,0 +1,3 @@
+Il est clair que ce n'est pas la meilleure facon de proceder pour implementer cet interpreteur
+mais il a ete fait dans le but de simuler le comportement sur une machine reelle ce qui explique 
+l'utilisation de cette architecture.

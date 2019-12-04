@@ -8,23 +8,23 @@ package assembly.interpreter;
 import assembly.instruction.InstructionOperation;
 import assembly.instruction.Instruction;
 import assembly.AssemblyTwoAdress;
-import assembly.instruction.Commands;
 import assembly.memory.MyDesktop;
 import java.util.HashMap;
 import java.util.function.Function;
+import assembly.instruction.CommandsOperation;
 
 /**
  *
  * @author _Nprime496_
  */
 
-interface CommandsTwoAdresses extends Commands
+enum CommandsTwoAdresses
 {
-    public String _STORE_="STORE";
-    public String _LOAD_="LOAD";
+    STORE,
+    LOAD;
 }
 
-public class InterpreterTwoAdress extends Interpreter implements CommandsTwoAdresses{
+public class InterpreterTwoAdress extends Interpreter{
     
     
     public InterpreterTwoAdress()
@@ -40,13 +40,13 @@ public class InterpreterTwoAdress extends Interpreter implements CommandsTwoAdre
         System.out.println(this.toString()+": fonctions crées");
         //pour ajouter une nouvelle commande, il suffit de créer un nouvel objet Function et l'ajouter parmi les fonctionnalités de l'interpreteur avec un mot clé associé
         Function<Instruction,Boolean> add=(Instruction instruction)->{((AssemblyTwoAdress)this.AssemblyMode).add(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);return true;};
-        commandsDict.put(_ADD_,add);
+        commandsDict.put(CommandsOperation.ADD.toString(),add);
         Function<Instruction,Boolean> sub=(Instruction instruction)->{((AssemblyTwoAdress)this.AssemblyMode).sub(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);return true;};
-        commandsDict.put(_SUB_,sub);
+        commandsDict.put(CommandsOperation.SUB.toString(),sub);
         Function<Instruction,Boolean> div=(Instruction instruction)->{((AssemblyTwoAdress)this.AssemblyMode).div(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);return true;};
-        commandsDict.put(_DIV_,div);
+        commandsDict.put(CommandsOperation.DIV.toString(),div);
         Function<Instruction,Boolean> mpy=(Instruction instruction)->{((AssemblyTwoAdress)this.AssemblyMode).mpy(((InstructionOperation)instruction).getOperands()[0],((InstructionOperation)instruction).getOperands()[1]);return true;};
-        commandsDict.put(_MPY_,mpy);
+        commandsDict.put(CommandsOperation.MPY.toString(),mpy);
         return true;
     }
     

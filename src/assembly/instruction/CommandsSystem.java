@@ -12,14 +12,14 @@ package assembly.instruction;
  * @author _Nprime496_
  */
 
-interface CommmandsSystem
+public enum CommandsSystem
 {
     //commandes de communication avec le systeme
-    final String _SET_="SET";//permet d'initialiser des valeurs
-    final String _PRINT_="PRINT";
+    SET,//permet d'initialiser des valeurs
 }
 
-public interface Commands extends CommandsBranch,CommandsOperation,CommmandsSystem
+/*public class Commands extends CommandsBranch,CommandsOperation,CommmandsSystem
 {
     //all the basic commands here by heritage
-}
+}*/
+

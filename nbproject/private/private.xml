@@ -3,16 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Flag.java</file>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/MyDesktop.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InterpreterOneAdress.java</file>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/ProgramCounter.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Accumulator.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Memory.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/instruction/Commands.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/memory/Flag.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/filemanager/FileManager.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/filemanager/Parser.java</file>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InterpreterZeroAdress.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/instruction/CommandsOperation.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InterpreterTwoAdress.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/views/Controller.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/instruction/CommandsBranch.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/views/AssemblyBackEnd.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/instruction/InstructionDeclaration.java</file>
+            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/test/assembly/parser/ParserTest.java</file>
             <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/Interpreter.java</file>
-            <file>file:/C:/Users/_Nprime496_/Documents/NetBeansProjects/AssemblyBackEnd/src/assembly/interpreter/InterpreterThreeAdress.java</file>
         </group>
     </open-files>
 </project-private>

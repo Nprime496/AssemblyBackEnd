@@ -6,14 +6,13 @@
 package assembly.filemanager;
 
 import assembly.instruction.*;
-import java.lang.reflect.Field;
 import javafx.util.Pair;
 
 /**
  *
  * @author _Nprime496_
  */
-public class Parser implements Commands{
+public class Parser{
     public Pair<String,String> SplitAdress(String instruction)
     {
         //separe l'adresse de l'instruction du contenu
@@ -63,55 +62,32 @@ public class Parser implements Commands{
     public Instruction SplitInstruction(String instruction)
     {
         //crée une instruction
-        System.out.println(Commands.class.getFields());
+        //System.out.println(Commands.class.getFields());
         //faire une boucle pour verifier si le type des instructions
-
         Pair<String,String> tmpPair=this.SplitAdress(instruction);
         String adress=tmpPair.getKey();
-        System.err.println(instruction);
-        for (Field f : CommandsBranch.class.getFields())
+        tmpPair=this.SplitBranch(tmpPair.getValue());
+        for (CommandsBranch f : CommandsBranch.values())
         {
-            if(f.equals(tmpPair.getValue().toUpperCase()))
-            {
-                System.err.println("branch!!");
-                tmpPair=this.SplitBranch(tmpPair.getValue());
+            if(f.toString().equals(tmpPair.getKey().toUpperCase()))
                 return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
-            }
         }
-        for (Field f : CommandsOperation.class.getFields())
+        tmpPair=this.SplitOperation(tmpPair.getKey()+" "+tmpPair.getValue());
+        for (CommandsOperation f : CommandsOperation.values())
         {
-            if(f.equals(tmpPair.getValue().toUpperCase()))
-            {
-                System.err.println("operation!!");
-                System.out.println("operation!!!");
-                tmpPair=this.SplitOperation(tmpPair.getValue());
+            if(f.toString().equals(tmpPair.getKey().toUpperCase()))
+            {         
                 String[] tmp=this.SplitOperands(tmpPair.getValue());
                 return new InstructionOperation(adress,tmpPair.getKey(),tmp);
             }
         }
+        String temp=tmpPair.getKey()+" "+tmpPair.getValue();
+        String[] tmp=temp.split(" ");
+        for (CommandsSystem f : CommandsSystem.values())
+        {
+            if(f.toString().equals(tmp[0].toUpperCase()))
+                return new InstructionDeclaration(adress,tmp[0],tmp[1],tmp[2]);
+        }
         return null;
-        /*
-        if(tmpPair.getValue().trim().charAt(0)=='B' || tmpPair.getValue().trim().toUpperCase().equals("STOP") || tmpPair.getValue().trim().toUpperCase().contains("PRINT"))
-        {
-            System.out.println("branch!!");
-            tmpPair=this.SplitBranch(tmpPair.getValue());
-            return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
-        }
-        else if(tmpPair.getValue().trim().startsWith("SET"))
-        {
-            System.out.println("declaration!!");
-            //int pos=tmpPair.getValue().indexOf(" ");
-            String[] tmp=tmpPair.getValue().split(" ");
-            return new InstructionDeclaration(adress,tmp[0],tmp[1],tmp[2]);
-        }
-        else
-        {
-            System.out.println("operation!!!");
-            tmpPair=this.SplitOperation(tmpPair.getValue());
-            String[] tmp=this.SplitOperands(tmpPair.getValue());
-            return new InstructionOperation(adress,tmpPair.getKey(),tmp);
-        }*/
-        //return null;
     }
-    
 }

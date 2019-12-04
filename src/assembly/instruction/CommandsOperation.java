@@ -9,10 +9,11 @@ package assembly.instruction;
  *
  * @author _Nprime496_
  */
-public interface CommandsOperation {
+public enum CommandsOperation {
     //commandes relatives aux differentes operations des assembleurs
-    final String _ADD_="ADD";
-    final String _SUB_="SUB";
-    final String _DIV_="DIV";
-    final String _MPY_="MPY";  
+    ADD,
+    SUB,
+   DIV,
+    MPY;
 }
+

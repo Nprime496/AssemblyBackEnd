@@ -9,20 +9,20 @@ import assembly.instruction.InstructionBranch;
 import assembly.instruction.InstructionDeclaration;
 import assembly.instruction.Instruction;
 import assembly.Assembly;
+import assembly.instruction.CommandsBranch;
 import assembly.instruction.InstructionOperation;
 import assembly.memory.MyDesktop;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.function.Function;
-import assembly.instruction.Commands;
+
 
 /**
  *
  * @author _Nprime496_
  */
-public abstract class Interpreter implements Commands {
+public abstract class Interpreter{
     private static String buffer;
-    Commands a;
     //ce qui est important à retenir est que les instructions ayant une adresse seront stockées en deux temps d'abord dans leur ordre d'apparition
     //et ensuite leur numero de ligne sera conservé en mémoire dans une case ayant l'adresse mentionnée 
     //ainsi, un branchement vers cette case fournira le numéro de la ligne à executer et on se "branchera" à nouveau sur celle-ci
@@ -100,33 +100,33 @@ public abstract class Interpreter implements Commands {
         //code spaghetti à supprimer
         System.out.println("interpreting...");
         System.out.println("flag: "+MyDesktop.getFlag().getValue());
-        if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BR_))
+        if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.BR.toString()))
         {
             MyDesktop.getCounter().setAdressNextInstruction(Integer.toString((int)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1));
         }
-        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BGT_) && MyDesktop.getFlag().getValue()==1 )
+        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.BGT.toString()) && MyDesktop.getFlag().getValue()==1 )
         {
             System.out.println("BGT");
             System.out.println("branchement : "+((InstructionBranch) instruction).getDestination()+", line : "+(Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()));
             MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
         }
-        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BLT_) && MyDesktop.getFlag().getValue()==-1 )
+        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.BLT.toString()) && MyDesktop.getFlag().getValue()==-1 )
         {
             System.out.println(((InstructionBranch) instruction).getDestination());
             MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
         }
-        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_BEZ_) && MyDesktop.getFlag().getValue()==0 )
+        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.BEZ.toString()) && MyDesktop.getFlag().getValue()==0 )
         {
             System.out.println("BEZ");
             System.out.println("branchement : "+((InstructionBranch) instruction).getDestination()+", line : "+(Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination()));
             MyDesktop.getCounter().setAdressNextInstruction((Integer.toString((Integer)MyDesktop.getMemory().retrieve(((InstructionBranch) instruction).getDestination())-1)));
         }
-        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_PRINT_))
+        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.PRINT.toString()))
         {
             Object value=((InstructionBranch) instruction).getDestination();
             MyDesktop.print((String)value);
         }
-        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(_STOP_))
+        else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.STOP.toString()))
         {
             return false;//fin du programme
         }

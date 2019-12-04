@@ -54,7 +54,7 @@ public class Controller implements Initializable {
         //MyDesktop.getMemory().clear();
         MyDesktop.getCounter().setAdressNextInstruction(Integer.toString(0));
         boolean allIsFine=true;
-        console.setText("Output:\n");//vider la console
+        console.setText("Output:");//vider la console
         System.out.println("Running!!");
         while(allIsFine)
         {
@@ -70,7 +70,7 @@ public class Controller implements Initializable {
             System.out.println("LINE TO EXECUTE : "+Integer.toString(Integer.parseInt(MyDesktop.getCounter().getAdressInstruction())));
             Object val=MyDesktop.getBuffer();
             if(val!=null)
-                console.setText(console.getText()+(val));
+                console.setText(console.getText()+"\n"+(val));
             MyDesktop.setBuffer(null);   
         }
     }
