@@ -15,8 +15,8 @@ _friends will have fun looking at._
 
 ## requirements
 
-java 8.*
-javafx 8.* (available on default on the 8th version of java)
+- java 8.*
+- javafx 8.* (available on default on the 8th version of java)
 (i don't know my suff)
 
 ## installation
