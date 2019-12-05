@@ -27,8 +27,6 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-//import com.gluonhq.charm.glisten.control.Icon; 
 
 
 /**

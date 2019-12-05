@@ -123,8 +123,17 @@ public abstract class Interpreter{
         }
         else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.PRINT.toString()))
         {
-            Object value=((InstructionBranch) instruction).getDestination();
-            MyDesktop.print((String)value);
+            String temp=((String)((InstructionBranch) instruction).getDestination());
+            if(temp.trim().startsWith("\""))
+            {
+                MyDesktop.printMessage(temp.substring(1,temp.length()-1));
+            }
+            else
+            {
+                MyDesktop.print(temp);
+            }
+            //Object value=((InstructionBranch) instruction).getDestination();
+            
         }
         else if(((InstructionBranch) instruction).getBranchement().toUpperCase().equals(CommandsBranch.STOP.toString()))
         {

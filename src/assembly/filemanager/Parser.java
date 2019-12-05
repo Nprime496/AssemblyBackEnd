@@ -7,7 +7,6 @@ package assembly.filemanager;
 
 import assembly.instruction.*;
 import javafx.util.Pair;
-
 /**
  *
  * @author _Nprime496_
@@ -72,21 +71,24 @@ public class Parser{
             if(f.toString().equals(tmpPair.getKey().toUpperCase()))
                 return new InstructionBranch(adress,tmpPair.getKey(),tmpPair.getValue());
         }
-        tmpPair=this.SplitOperation(tmpPair.getKey()+" "+tmpPair.getValue());
-        for (CommandsOperation f : CommandsOperation.values())
-        {
-            if(f.toString().equals(tmpPair.getKey().toUpperCase()))
-            {         
-                String[] tmp=this.SplitOperands(tmpPair.getValue());
-                return new InstructionOperation(adress,tmpPair.getKey(),tmp);
-            }
-        }
+
         String temp=tmpPair.getKey()+" "+tmpPair.getValue();
         String[] tmp=temp.split(" ");
         for (CommandsSystem f : CommandsSystem.values())
         {
             if(f.toString().equals(tmp[0].toUpperCase()))
                 return new InstructionDeclaration(adress,tmp[0],tmp[1],tmp[2]);
+        }
+        //est-il necessaire de verifier les operations, vu que les operations specifiques a un interpreteur
+        //ne sont disponibles que dans l'interpreteur correspondant?
+        tmpPair=this.SplitOperation(tmpPair.getKey()+" "+tmpPair.getValue());
+        for (CommandsOperation f : CommandsOperation.values())
+        {
+            if(f.toString().equals(tmpPair.getKey().toUpperCase()))
+            {         
+                String[] timp=this.SplitOperands(tmpPair.getValue());
+                return new InstructionOperation(adress,tmpPair.getKey(),timp);
+            }
         }
         return null;
     }

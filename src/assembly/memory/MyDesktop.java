@@ -51,9 +51,10 @@ public class MyDesktop {
             flag=new Flag();
         return flag;
     }
-    public static void printMessage(String message)
+    public static void printMessage(String adress)
     {
-        System.out.println(message);
+        System.out.println("affichage: "+adress+" valeur:"+MyDesktop.getMemory().retrieve(adress));
+        MyDesktop.setBuffer(adress);
     }
     public static void print(String adress) {
         System.out.println("affichage: "+adress+" valeur:"+MyDesktop.getMemory().retrieve(adress));
@@ -61,7 +62,6 @@ public class MyDesktop {
         if(value instanceof Integer)
             value=Integer.toString((Integer)value);
         MyDesktop.setBuffer(value);
-        
     }
     public static ProgramCounter getCounter()
     {
