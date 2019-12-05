@@ -1,6 +1,6 @@
 # Assembly IDE Project
 
-simulation of a computer functionnment (memories,instructions...) to create a Pseudo-assembly interpreter.
+-Simulation of a computer functionnment (memories,instructions...) to create a Pseudo-assembly interpreter._
 
 ## overview
 
